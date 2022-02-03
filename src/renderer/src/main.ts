@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import '@a/style/index.scss';
 import App from './App.vue'
-import './registerServiceWorker'
+// import '@/registerServiceWorker'
 import router from './router'
 import store from './store'
 import native from './plugins/native-ui';
