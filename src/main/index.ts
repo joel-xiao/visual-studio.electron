@@ -2,6 +2,8 @@ import os from 'os'
 import path from 'path'
 import { app, BrowserWindow } from 'electron'
 
+const icon_url = '../renderer/favicon.png';
+
 // https://stackoverflow.com/questions/42524606/how-to-get-windows-version-using-node-js
 const isWin7 = os.release().startsWith('6.1')
 if (isWin7) app.disableHardwareAcceleration()
@@ -18,7 +20,12 @@ async function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.cjs'),
     },
+    icon: path.join(__dirname, icon_url)
   })
+
+  if (process.platform === 'darwin') {
+    app.dock.setIcon(path.join(__dirname, icon_url));
+  }
 
   if (app.isPackaged) {
     win.loadFile(path.join(__dirname, '../renderer/index.html'))
