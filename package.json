@@ -1,12 +1,13 @@
 {
-  "name": "electron-vue-vite",
+  "name": "dashboard-editor",
   "version": "1.0.0",
   "main": "dist/main/index.cjs",
-  "author": "草鞋没号 <308487730@qq.com>",
+  "author": "Joel <xiao2731962667@163.com>",
   "license": "MIT",
   "scripts": {
     "dev": "node scripts/watch.mjs",
-    "build": "vue-tsc --project src/renderer/tsconfig.json --noEmit && node scripts/build.mjs && electron-builder"
+    "build": "node scripts/build.mjs && electron-builder",
+    "tsc-build": "vue-tsc --project src/renderer/tsconfig.json --noEmit && node scripts/build.mjs && electron-builder"
   },
   "engines": {
     "node": ">=14.17.0"
