@@ -1,4 +1,5 @@
-import { join } from 'path'
+// import { join } from 'path'
+import path from 'path'
 import { builtinModules } from 'module'
 import { defineConfig, Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -22,6 +23,19 @@ export default defineConfig({
        */
     ),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      "@v": path.resolve(__dirname, "src/views"),
+      "@c": path.resolve(__dirname, "src/components"),
+      "@u": path.resolve(__dirname, "src/utils"),
+      "@a": path.resolve(__dirname, "src/assets"),
+      "@s": path.resolve(__dirname, "src/service"),
+      "@p": path.resolve(__dirname, "src/plugins"),
+      // "layouts": path.resolve(__dirname, "src/layouts"),
+      // "dirs": path.resolve(__dirname, "src/directives"),
+    },
+  },
   base: './',
   build: {
     emptyOutDir: true,
