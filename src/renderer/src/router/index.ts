@@ -33,6 +33,7 @@ const routePathJoinHandler = function(routes:Array<RouteRecordRaw>,parentPath?:S
     if(parentPath) {
       route.path = parentPath + route.path;
     }
+
     if(Array.isArray(route.children) && route.children.length){
       routePathJoinHandler(route.children, route.path);
     }

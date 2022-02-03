@@ -36,6 +36,9 @@ export default defineConfig({
       // "dirs": path.resolve(__dirname, "src/directives"),
     },
   },
+  define: {
+    'process.env': {}
+  },
   base: './',
   build: {
     emptyOutDir: true,

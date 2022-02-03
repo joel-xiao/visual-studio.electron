@@ -45,10 +45,28 @@ div.tree-item(
 <script lang="ts" setup>
   import TreeItem from './tree-item.vue';
   import { ref, reactive, defineEmits, defineProps, withDefaults } from 'vue'
-  import { TreeItemData, TreeItemMenu } from './interface';
+  // import { TreeItemData, TreeItemMenu } from './interface';
+  interface TreeItemData {
+    name?: string;
+    icon?: string;
+    id: string;
+    sum?: number;
+    children?: [TreeItemData];
+    AFold?: Boolean;
+    handle?: Boolean;
+  }
+
+  interface TreeItemMenu {
+      name:string;
+      icon: String;
+      id:string;
+      children?: [TreeItemMenu];
+      disabled?: Boolean;
+  }
+
   interface Props {
     recursion?:number;
-    data?: [TreeItem];
+    data?: [TreeItemData];
     itemIcon?: string;
     itemMenus: [TreeItemMenu];
     currentNav?: TreeItemData;

@@ -38,7 +38,24 @@ div#dashboard-my-project
 
 <script setup lang="ts">
     import {ref, reactive } from "vue";
-    import { TreeItemMenu, TreeItemData  } from "@c/nav-tree/interface.ts"
+    // import { TreeItemMenu, TreeItemData  } from "@c/nav-tree/interface.ts"
+    interface TreeItemData {
+    name?: string;
+    icon?: string;
+    id: string;
+    sum?: number;
+    children?: [TreeItemData];
+    AFold?: Boolean;
+    handle?: Boolean;
+  }
+
+  interface TreeItemMenu {
+      name:string;
+      icon: String;
+      id:string;
+      children?: [TreeItemMenu];
+      disabled?: Boolean;
+  }
 
         const projectList:ReadonlyArray<TreeItemData>[] = reactive([
                 { name: "全部应用", id: 'all', sum: 0, handle: false },
