@@ -2389,6 +2389,11 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+register-service-worker@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.npmmirror.com/register-service-worker/-/register-service-worker-1.7.2.tgz#6516983e1ef790a98c4225af1216bc80941a4bd2"
+  integrity sha512-CiD3ZSanZqcMPRhtfct5K9f7i3OLCcBBWsJjLh1gW9RO/nS94sVzY59iS+fgYBOBqaBpf4EzfqUF3j9IG+xo8A==
+
 registry-auth-token@^4.0.0:
   version "4.2.1"
   resolved "https://registry.npmmirror.com/registry-auth-token/-/registry-auth-token-4.2.1.tgz#6d7b4006441918972ccd5fedcd41dc322c79b250"
