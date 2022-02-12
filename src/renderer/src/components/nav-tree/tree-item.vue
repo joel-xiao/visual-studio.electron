@@ -54,8 +54,8 @@
   }
 
 
-  const onCommand = function(event:Event, cmd:TreeItemMenu):void {
-    emit('command',event , cmd);
+  const onCommand = function(event:any, cmd:TreeItemMenu):void {
+    emit('command',event.path[1] , cmd);
   }
 
 </script>

@@ -63,8 +63,7 @@
     document.removeEventListener('click', onTreeClick);
   })
 
-  const onCommand = function( event:Event, cmd:TreeItemMenu):void {
-    let el:HTMLElement = event.path[1];
+  const onCommand = function( el:HTMLElement, cmd:TreeItemMenu):void {
     if(cmd?.children?.length) {
       onContentMenuShow(true, el);
       return;
