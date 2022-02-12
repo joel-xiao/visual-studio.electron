@@ -1,23 +1,6 @@
 <script lang="ts" setup>
   import { ref, reactive, defineEmits, defineProps, withDefaults } from 'vue'
-  // import { TreeItemData, TreeItemMenu } from './interface';
-  interface TreeItemData {
-    name?: string;
-    icon?: string;
-    id: string;
-    sum?: number;
-    children?: TreeItemData[];
-    AFold?: Boolean;
-    handle?: Boolean;
-  }
-
-  interface TreeItemMenu {
-      name:string;
-      icon: String;
-      id:string;
-      children?: TreeItemMenu[];
-      disabled?: Boolean;
-  }
+  import type { TreeItemData, TreeItemMenu } from './interface'
 
   interface Props {
     recursion?:number;

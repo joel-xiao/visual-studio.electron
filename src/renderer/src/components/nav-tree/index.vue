@@ -1,25 +1,7 @@
 <script lang="ts" setup>
   import TreeItem from './tree-item.vue';
   import { ref, reactive, defineProps, withDefaults, defineEmits, onUnmounted } from 'vue'
-  // import { TreeItemData, TreeItemMenu } from './interface'
-
-  interface TreeItemData {
-    name?: string;
-    icon?: string;
-    id: string;
-    sum?: number;
-    children?: TreeItemData[];
-    AFold?: boolean;
-    handle?: boolean;
-  }
-
-  interface TreeItemMenu {
-      name:string;
-      icon: String;
-      id:string;
-      children?: TreeItemMenu[];
-      disabled?: boolean;
-  }
+  import type { TreeItemData, TreeItemMenu } from './interface'
 
   interface Props {
     data?: TreeItemData[];

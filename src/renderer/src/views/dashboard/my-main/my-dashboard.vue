@@ -1,56 +1,41 @@
 <script setup lang="ts">
-    import {ref, reactive } from "vue";
-    // import { TreeItemMenu, TreeItemData  } from "@c/nav-tree/interface.ts"
-    interface TreeItemData {
-    name?: string;
-    icon?: string;
+import { ref, reactive } from "vue";
+import type { TreeItemMenu, TreeItemData } from "@c/nav-tree/interface"
+
+const projectList: TreeItemData[] = reactive([
+    { name: "全部应用", id: 'all', sum: 0, handle: false },
+    { name: "未分组", id: 'no-group', sum: 0, handle: false },
+    {
+        name: "xiao", id: '123', sum: 0, children: [{ name: "全部应用", id: '1all', sum: 0 },
+        { name: "未分组", id: '1no-group', sum: 0 },
+        { name: "其他", id: '1123', sum: 0 },]
+    },
+]);
+const currentItem = ref<TreeItemData>(projectList[0]);
+const onProjectSelect = function (item: TreeItemData): void {
+    currentItem.value = item;
+}
+
+
+const treeItemMenus: TreeItemMenu[] = reactive([
+    { name: "更多", id: 'more', icon: 'icon-dian', disabled: true, children: [{ name: "更多", id: 'more', icon: 'icon-dian', disabled: true }] },
+    { name: "添加组", id: 'add', icon: 'icon-jiahao', disabled: true },
+]);
+const onAddGroup = function (): void {
+
+}
+
+
+
+interface newProjectData {
+    name: string;
+    icon: string;
     id: string;
-    sum?: number;
-    children?: TreeItemData[];
-    AFold?: Boolean;
-    handle?: Boolean;
-  }
-
-  interface TreeItemMenu {
-      name:string;
-      icon: String;
-      id:string;
-      children?: TreeItemMenu[];
-      disabled?: Boolean;
-  }
-
-        const projectList:TreeItemData[] = reactive([
-                { name: "全部应用", id: 'all', sum: 0, handle: false },
-                { name: "未分组", id: 'no-group', sum: 0 , handle: false },
-                { name: "xiao", id: '123', sum: 0, children: [{ name: "全部应用", id: '1all', sum: 0 },
-                { name: "未分组", id: '1no-group', sum: 0 },
-                { name: "其他", id: '1123', sum: 0 },]},
-            ]);
-        const currentItem = ref<TreeItemData>(projectList[0]);
-        const onProjectSelect = function (item:TreeItemData):void {
-            currentItem.value = item;
-        }
-
-
-        const treeItemMenus:TreeItemMenu[] = reactive([
-                { name: "更多", id: 'more', icon: 'icon-dian', disabled: true, children: [{ name: "更多", id: 'more', icon: 'icon-dian', disabled: true}]},
-                { name: "添加组", id: 'add', icon: 'icon-jiahao', disabled: true },
-            ]);
-        const onAddGroup = function ():void {
-            
-        }
-
-
-
-        interface newProjectData {
-            name:string;
-            icon: string;
-            id:string;
-        }
-        const newProjectList:newProjectData[] = reactive([
-                { name: "PC端创建", id: 'web', icon: 'new-project-web.png' },
-                { name: "移动端创建", id: 'mobile', icon: 'new-project-mobile.png' },
-            ]);
+}
+const newProjectList: newProjectData[] = reactive([
+    { name: "PC端创建", id: 'web', icon: 'new-project-web.png' },
+    { name: "移动端创建", id: 'mobile', icon: 'new-project-mobile.png' },
+]);
 
 </script>
 
@@ -72,7 +57,7 @@ div#dashboard-my-project
         //-     :key="item.id")
         //-         span(class="project-name") {{item.name}}
         //-         span(class="project-num") {{item.sum}}
-    
+
     //- div(class="project-screen-list right")
     //-     div(class="new-projects-title")
     //-         |选择下面的方式进行创建
@@ -115,10 +100,9 @@ div#dashboard-my-project
             color: #fff;
 
             .add-group {
-
             }
         }
-        
+
         .manage-main {
             .main-project {
                 font-size: 14px;
@@ -139,8 +123,9 @@ div#dashboard-my-project
                     background-size: contain;
                     color: #fff;
                 }
-                
-                &:not(.all, .no-group), &.no-group .project-num {
+
+                &:not(.all, .no-group),
+                &.no-group .project-num {
                     font-size: 12px;
                 }
             }
@@ -148,7 +133,7 @@ div#dashboard-my-project
     }
 
     .project-screen-list {
-        padding:0 50px 0 20px;
+        padding: 0 50px 0 20px;
         height: 100%;
         width: calc(100% - 240px);
         .new-projects-title {
@@ -166,7 +151,7 @@ div#dashboard-my-project
             flex-direction: row;
             flex-wrap: wrap;
             margin-right: -32px;
-            
+
             .new-project {
                 width: 258px;
                 height: 78px;
@@ -190,7 +175,7 @@ div#dashboard-my-project
                         height: 100%;
                         top: 0;
                         left: 0;
-                        background: rgba(36,131,255,.08);
+                        background: rgba(36, 131, 255, 0.08);
                     }
                 }
 
@@ -229,7 +214,7 @@ div#dashboard-my-project
                     font-size: 14px;
                     padding: 0 10px;
                     color: var(--dashboard-main-color);
-                    border-left: 2px solid var(--dashboard-main-color); 
+                    border-left: 2px solid var(--dashboard-main-color);
                 }
 
                 span.color-2483FF {
