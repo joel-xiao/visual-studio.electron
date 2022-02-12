@@ -20,7 +20,7 @@ module.exports = {
             'error',
             'interface'
         ],
-        '@typescript-eslint/no-unused-vars': 'error', // 使用 ts 未使用变量的规则 比如枚举类型在es中会报错
+        '@typescript-eslint/no-unused-vars': 'off', // 使用 ts 未使用变量的规则 比如枚举类型在es中会报错
         'no-extend-native': 0,
         'no-new': 0,
         'no-useless-escape': 0,
@@ -45,7 +45,7 @@ module.exports = {
         'array-bracket-spacing': [ 'error', 'always' ],
         'arrow-spacing': 'error',
         'no-multiple-empty-lines': 'error',
-        'no-unused-vars': 'error',
+        'no-unused-vars': 'off',
         'spaced-comment': 'error',
         'quotes': [ 'error', 'single', { 'allowTemplateLiterals': true } ],
         'no-unreachable': 'error',
