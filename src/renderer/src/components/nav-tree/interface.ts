@@ -6,11 +6,11 @@ export interface TreeItemData {
     children?: TreeItemData[];
     AFold?: boolean;
     handle?: boolean;
-  };
+  }
 
 export interface TreeItemMenu {
     name:string;
-    icon: String;
+    icon: string;
     id:string;
     children?: TreeItemMenu[];
     disabled?: boolean;

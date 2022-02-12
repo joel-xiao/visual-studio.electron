@@ -4,7 +4,7 @@ div#layout-content()
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted, nextTick } from "vue";
+import { onMounted } from "vue";
 import { useLoadingBar } from "naive-ui";
 
     const loadingBar = useLoadingBar();

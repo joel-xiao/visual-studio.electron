@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
   }
 ]
 
-const routePathJoinHandler = function(routes:Array<RouteRecordRaw>,parentPath?:String):void{
+const routePathJoinHandler = function(routes:Array<RouteRecordRaw>,parentPath?:string):void{
   routes.forEach(route => {
     if(parentPath) {
       route.path = parentPath + route.path;

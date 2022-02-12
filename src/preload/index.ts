@@ -1,9 +1,9 @@
 import fs from 'fs'
-import { contextBridge, ipcRenderer, IpcRenderer } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 import { domReady } from './utils'
 import { useLoading } from './loading'
 
-const isDev = process.env.NODE_ENV === 'development'
+// const isDev = process.env.NODE_ENV === 'development'
 const { removeLoading, appendLoading } = useLoading()
 
 domReady().then(() => {

@@ -16,7 +16,7 @@ if (!app.requestSingleInstanceLock()) {
 let win: BrowserWindow | null = null
 
 async function createWindow() {
-  let window = {
+  const window = {
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.cjs'),
     },

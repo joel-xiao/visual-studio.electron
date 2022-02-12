@@ -29,7 +29,7 @@
   treeItemStyle.paddingLeft = 24 + (props.recursion * 16) + 'px';
 
 
-  const AFold = ref<Boolean>(false);
+  const AFold = ref<boolean>(false);
   const onArrow = function(item:TreeItemData):void {
     item.AFold = !item.AFold;
     AFold.value = item.AFold;

@@ -25,8 +25,8 @@
 
 
   const contentMenuStyle:{ left?: string, top?: string } = reactive({});
-  const contentMenuShow = ref<Boolean>(false);
-  const onContentMenuShow = function (val?:Boolean, el?:HTMLElement):void {
+  const contentMenuShow = ref<boolean>(false);
+  const onContentMenuShow = function (val?:boolean, el?:HTMLElement):void {
     contentMenuShow.value = !!val;
     const rect: DOMRect | undefined = el && el.getBoundingClientRect();
     if(val && rect) {
