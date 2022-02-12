@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import TreeItem from './tree-item.vue';
   import { ref, reactive, defineEmits, defineProps, withDefaults } from 'vue'
   // import { TreeItemData, TreeItemMenu } from './interface';
   interface TreeItemData {
