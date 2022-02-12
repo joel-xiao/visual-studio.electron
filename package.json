@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node scripts/watch.mjs",
+    "tsc": "vue-tsc --project src/renderer/tsconfig.json --noEmit",
     "build": "node scripts/build.mjs && electron-builder",
     "tsc-build": "vue-tsc --project src/renderer/tsconfig.json --noEmit && node scripts/build.mjs && electron-builder"
   },

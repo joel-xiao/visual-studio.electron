@@ -20,8 +20,8 @@ async function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.cjs'),
     },
+    icon: icon_url && path.join(__dirname, icon_url),
   }
-  icon_url && (window.icon = path.join(__dirname, icon_url));
   win = new BrowserWindow(window);
 
   if (process.platform === 'darwin') {
