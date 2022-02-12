@@ -20,11 +20,6 @@ const routes: Array<RouteRecordRaw> = [
         }
       ]
     }]
-  },
-  {
-    path: '/xiao',
-    name: 'Xiao',
-    component: () => import(/* webpackChunkName: "xiao" */ '@v/xiao/index.vue')
   }
 ]
 
