@@ -12,15 +12,15 @@ const projectList: TreeItemData[] = reactive([
     },
 ]);
 const currentItem = ref<TreeItemData>(projectList[0]);
-const onProjectSelect = function (item: TreeItemData): void {
-    currentItem.value = item;
-};
+// const onProjectSelect = function (item: TreeItemData): void {
+//     currentItem.value = item;
+// };
 
 
-const treeItemMenus: TreeItemMenu[] = reactive([
-    { name: '更多', id: 'more', icon: 'icon-dian', disabled: true, children: [ { name: '更多', id: 'more', icon: 'icon-dian', disabled: true } ] },
-    { name: '添加组', id: 'add', icon: 'icon-jiahao', disabled: true },
-]);
+// const treeItemMenus: TreeItemMenu[] = reactive([
+//     { name: '更多', id: 'more', icon: 'icon-dian', disabled: true, children: [ { name: '更多', id: 'more', icon: 'icon-dian', disabled: true } ] },
+//     { name: '添加组', id: 'add', icon: 'icon-jiahao', disabled: true },
+// ]);
 // const onAddGroup = function (): void {
 
 // };
