@@ -1,42 +1,42 @@
 <template lang="pug">
 div#layout
-    n-layout-header(class="layout-header" bordered) 
+    n-layout-header(class="layout-header" bordered)
         headerVue
     n-layout(has-sider class='layout-contanner' position="absolute")
-        n-layout-sider(class='layout-sider' :native-scrollbar="false") 
+        n-layout-sider(class='layout-sider' :native-scrollbar="false")
             |海淀桥
         n-layout(class='layout-content' :native-scrollbar="false")
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
-            n-h2 
+            n-h2
                 |平山道
 </template>
 

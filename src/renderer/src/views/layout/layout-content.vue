@@ -4,16 +4,16 @@ div#layout-content()
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { useLoadingBar } from "naive-ui";
+import { onMounted } from 'vue';
+import { useLoadingBar } from 'naive-ui';
 
-    const loadingBar = useLoadingBar();
-    onMounted(() => {
-        loadingBar.start();
-        setTimeout(() => {
-            loadingBar.finish();
-        })
+const loadingBar = useLoadingBar();
+onMounted(() => {
+    loadingBar.start();
+    setTimeout(() => {
+        loadingBar.finish();
     });
+});
 </script>
 
 <style lang="scss" scoped>

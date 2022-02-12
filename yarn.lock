@@ -275,7 +275,7 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@typescript-eslint/eslint-plugin@^5.11.0":
+"@typescript-eslint/eslint-plugin@^5.0.0", "@typescript-eslint/eslint-plugin@^5.11.0":
   version "5.11.0"
   resolved "https://registry.npmmirror.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.11.0.tgz#3b866371d8d75c70f9b81535e7f7d3aa26527c7a"
   integrity sha512-HJh33bgzXe6jGRocOj4FmefD7hRY4itgjzOrSs3JPrTNXsX7j5+nQPciAUj/1nZtwo2kAc3C75jZO+T23gzSGw==
@@ -290,7 +290,7 @@
     semver "^7.3.5"
     tsutils "^3.21.0"
 
-"@typescript-eslint/parser@^5.11.0":
+"@typescript-eslint/parser@^5.0.0", "@typescript-eslint/parser@^5.11.0":
   version "5.11.0"
   resolved "https://registry.npmmirror.com/@typescript-eslint/parser/-/parser-5.11.0.tgz#b4fcaf65513f9b34bdcbffdda055724a5efb7e04"
   integrity sha512-x0DCjetHZYBRovJdr3U0zG9OOdNXUaFLJ82ehr1AlkArljJuwEsgnud+Q7umlGDFLFrs8tU8ybQDFocp/eX8mQ==
@@ -475,6 +475,15 @@
   version "6.0.8"
   resolved "https://registry.npmmirror.com/@vue/devtools-api/-/devtools-api-6.0.8.tgz#78708d2d437093224f00b775f8808e2c35d024a3"
   integrity sha512-bzei608bPVQE2yq9Ghrjn/dnpf27mWfrr0q0ZQiuZoO3LQqFG0T1xSGz+9vw1j9KAZM2Cu9vdQMkddDxqzZGNg==
+
+"@vue/eslint-config-typescript@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.npmmirror.com/@vue/eslint-config-typescript/-/eslint-config-typescript-10.0.0.tgz#3b63c8cf276962cb89414857581b9b424acf2820"
+  integrity sha512-F94cL8ug3FaYXlCfU5/wiGjk1qeadmoBpRGAOBq+qre3Smdupa59dd6ZJrsfRODpsMPyTG7330juMDsUvpZ3Rw==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "^5.0.0"
+    "@typescript-eslint/parser" "^5.0.0"
+    vue-eslint-parser "^8.0.0"
 
 "@vue/reactivity-transform@3.2.31":
   version "3.2.31"
@@ -3244,6 +3253,11 @@ typedarray@^0.0.6:
   resolved "https://registry.npmmirror.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
+typescript-eslint@^0.0.1-alpha.0:
+  version "0.0.1-alpha.0"
+  resolved "https://registry.npmmirror.com/typescript-eslint/-/typescript-eslint-0.0.1-alpha.0.tgz#285d68a4e96588295cd436278801bcb6a6b916c1"
+  integrity sha512-1hNKM37dAWML/2ltRXupOq2uqcdRQyDFphl+341NTPXFLLLiDhErXx8VtaSLh3xP7SyHZdcCgpt9boYYVb3fQg==
+
 typescript@^4.5.5:
   version "4.5.5"
   resolved "https://registry.npmmirror.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
@@ -3493,7 +3507,7 @@ vscode-vue-languageservice@0.31.2:
     vscode-pug-languageservice "0.31.2"
     vscode-typescript-languageservice "0.31.2"
 
-vue-eslint-parser@^8.0.1:
+vue-eslint-parser@^8.0.0, vue-eslint-parser@^8.0.1:
   version "8.2.0"
   resolved "https://registry.npmmirror.com/vue-eslint-parser/-/vue-eslint-parser-8.2.0.tgz#8c3990deb901b0d528d99f4d052a831cd1d0284c"
   integrity sha512-hvl8OVT8imlKk/lQyhkshqwQQChzHETcBd5abiO4ePw7ib7QUZLfW+2TUrJHKUvFOCFRJrDin5KJO9OHzB5bRQ==

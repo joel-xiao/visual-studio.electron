@@ -1,9 +1,9 @@
 
-import Index from './index.vue'
+import Index from './index.vue';
 
 
 export default {
     install (app:any):void {
-        app.component('Page', Index)
+        app.component('Page', Index);
     }
-}
+};

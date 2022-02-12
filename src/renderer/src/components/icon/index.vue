@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-  import { defineProps, withDefaults } from 'vue'
+import { defineProps, withDefaults } from 'vue';
 
   interface Props {
     src?: string;
   }
 
-  const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
     src: '',
-  })
+});
 </script>
 
 <template lang="pug">

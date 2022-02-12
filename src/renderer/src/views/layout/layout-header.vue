@@ -8,7 +8,7 @@ div#layout-header()
 </template>
 
 <script setup lang="ts">
-    import User from './components/user.vue';
+import User from './components/user.vue';
 </script>
 
 <style lang="scss" scoped>

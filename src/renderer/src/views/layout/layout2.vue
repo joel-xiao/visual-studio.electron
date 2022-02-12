@@ -1,6 +1,6 @@
 <template lang="pug">
 div#layout
-    n-layout-header(class="layout-header" bordered) 
+    n-layout-header(class="layout-header" bordered)
         Header
     n-layout(has-sider class='layout-contanner' position="absolute")
         Content
@@ -22,7 +22,7 @@ import Content from './layout-content.vue';
     }
     & > .layout-contanner {
         top: 35px !important;
-        
+
     }
 }
 </style>

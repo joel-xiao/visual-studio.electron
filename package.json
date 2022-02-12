@@ -39,10 +39,12 @@
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
     "eslint-plugin-vue": "^8.4.1",
     "naive-ui": "^2.25.2",
     "register-service-worker": "^1.7.2",
     "sass": "^1.49.7",
+    "typescript-eslint": "^0.0.1-alpha.0",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
   }

@@ -1,9 +1,9 @@
 
-import Index from './index.vue'
+import Index from './index.vue';
 
 
 export default {
     install (app:any):void {
-        app.component('NavTree', Index)
+        app.component('NavTree', Index);
     }
-}
+};

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import { ref, reactive, defineEmits, defineProps, withDefaults } from 'vue'
-  import type { TreeItemData, TreeItemMenu } from './interface'
+import { ref, reactive, defineEmits, defineProps, withDefaults } from 'vue';
+import type { TreeItemData, TreeItemMenu } from './interface';
 
   interface Props {
     recursion?:number;
@@ -10,35 +10,35 @@
     currentNav?: TreeItemData | null;
   }
 
-  const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
     recursion: 0,
     data: () => [],
-    itemIcon:'',
+    itemIcon: '',
     itemMenus: () => [],
     currentNav: null,
-  })
-  
-  const emit = defineEmits(['select', 'command']);
+});
+
+const emit = defineEmits([ 'select', 'command' ]);
 
 
-  const onSelect = function (item:TreeItemData):void {
+const onSelect = function (item:TreeItemData):void {
     emit('select', item);
-  }
+};
 
-  const treeItemStyle:{ paddingLeft?: string } = reactive({});
-  treeItemStyle.paddingLeft = 24 + (props.recursion * 16) + 'px';
+const treeItemStyle:{ paddingLeft?: string } = reactive({});
+treeItemStyle.paddingLeft = 24 + (props.recursion * 16) + 'px';
 
 
-  const AFold = ref<boolean>(false);
-  const onArrow = function(item:TreeItemData):void {
+const AFold = ref<boolean>(false);
+const onArrow = function (item:TreeItemData):void {
     item.AFold = !item.AFold;
     AFold.value = item.AFold;
-  }
+};
 
 
-  const onCommand = function(event:any, cmd:TreeItemMenu):void {
-    emit('command',event.path[1] , cmd);
-  }
+const onCommand = function (event:any, cmd:TreeItemMenu):void {
+    emit('command', event.path[1], cmd);
+};
 
 </script>
 <template lang="pug">
@@ -77,7 +77,7 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        
+
         .arrow {
           cursor: pointer;
           transform: scale(0.9);
@@ -97,7 +97,7 @@
           border-radius: 2px;
           background: var(--color-tran-12);
         }
-      
+
         .name-icon{
           color: var(--color-tran-50);
         }
@@ -106,7 +106,7 @@
           margin: 0 2px;
         }
       }
-      
+
       .tree-item-handle {
         position: absolute;
         right: 0;
