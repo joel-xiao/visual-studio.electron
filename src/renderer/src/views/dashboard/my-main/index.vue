@@ -15,9 +15,9 @@ const navList:navData[] = reactive([
 ]);
 
 const currentNav = ref<navData>(navList[0]);
-// const onNavSelect = function (nav:navData):void {
-//     currentNav.value = nav;
-// };
+const onNavSelect = function (nav:navData):void {
+    currentNav.value = nav;
+};
 </script>
 
 <template lang="pug">
