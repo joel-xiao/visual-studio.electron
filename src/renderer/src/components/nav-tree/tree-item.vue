@@ -1,47 +1,3 @@
-<template lang="pug">
-div.tree-item(
-    v-for='item in data'
-    :key='item.id')
-    div(
-      class='tree-item-nav'
-      @click="onSelect(item)"
-      :class='{active: currentNav?.id === item.id}'
-      :style='treeItemStyle')
-      div.tree-item-left
-        Icon(
-        src="icon-xiangyoujiantou size-12"
-        class="arrow"
-        :class='{active: AFold}'
-        v-if="item?.children?.length"
-        @click.stop="onArrow(item)")
-        span( v-else class='dot')
-        Icon(
-          v-if="item.icon || itemIcon"
-          :src="item.icon || itemIcon"
-          class='name-icon')
-        span( v-else class="name-icon-margin")
-        span.tree-item-labe {{item.name}}
-      div.tree-item-handle(v-if="item.handle !== false")
-        Icon(
-          v-for="item in itemMenus"
-          :key="item.id"
-          :class="item.id"
-          @click.stop="onCommand($event,item)"
-          :src="item.icon")
-
-    div.tree-item-swapper(
-      v-if="!!item?.children?.length"
-      v-show="AFold")
-      TreeItem(
-        :recursion="recursion + 1"
-        @select="onSelect"
-        @command="onCommand"
-        :data="item.children"
-        :itemIcon="itemIcon"
-        :itemMenus="itemMenus"
-        :currentNav="currentNav")
-</template>
-
 <script lang="ts" setup>
   import TreeItem from './tree-item.vue';
   import { ref, reactive, defineEmits, defineProps, withDefaults } from 'vue'
@@ -51,7 +7,7 @@ div.tree-item(
     icon?: string;
     id: string;
     sum?: number;
-    children?: [TreeItemData];
+    children?: TreeItemData[];
     AFold?: Boolean;
     handle?: Boolean;
   }
@@ -60,23 +16,23 @@ div.tree-item(
       name:string;
       icon: String;
       id:string;
-      children?: [TreeItemMenu];
+      children?: TreeItemMenu[];
       disabled?: Boolean;
   }
 
   interface Props {
     recursion?:number;
-    data?: [TreeItemData];
+    data?: TreeItemData[];
     itemIcon?: string;
-    itemMenus: [TreeItemMenu];
-    currentNav?: TreeItemData;
+    itemMenus: TreeItemMenu[];
+    currentNav?: TreeItemData | null;
   }
 
   const props = withDefaults(defineProps<Props>(), {
     recursion: 0,
-    data: [],
+    data: () => [],
     itemIcon:'',
-    itemMenus: [],
+    itemMenus: () => [],
     currentNav: null,
   })
   
@@ -87,11 +43,11 @@ div.tree-item(
     emit('select', item);
   }
 
-  const treeItemStyle:CSSStyleDeclaration = reactive({});
+  const treeItemStyle:{ paddingLeft?: string } = reactive({});
   treeItemStyle.paddingLeft = 24 + (props.recursion * 16) + 'px';
 
 
-  const AFold = ref<Boolean>('');
+  const AFold = ref<Boolean>(false);
   const onArrow = function(item:TreeItemData):void {
     item.AFold = !item.AFold;
     AFold.value = item.AFold;
@@ -103,6 +59,20 @@ div.tree-item(
   }
 
 </script>
+<template lang="pug">
+.tree-item(v-for="item in data" :key="item.id")
+  .tree-item-nav(@click="onSelect(item)" :class="{active: currentNav?.id === item.id}" :style="treeItemStyle")
+    .tree-item-left
+      Icon.arrow(src="icon-xiangyoujiantou size-12" :class="{active: AFold}" v-if="item?.children?.length" @click.stop="onArrow(item)")
+      span.dot(v-else)
+      Icon.name-icon(v-if="item.icon || itemIcon" :src="item.icon || itemIcon")
+      span.name-icon-margin(v-else)
+      span.tree-item-labe {{item.name}}
+    .tree-item-handle(v-if="item.handle !== false")
+      Icon(v-for="item in itemMenus" :key="item.id" :class="item.id" @click.stop="onCommand($event,item)" :src="item.icon")
+  .tree-item-swapper(v-if="!!item?.children?.length" v-show="AFold")
+    TreeItem(:recursion="recursion + 1" @select="onSelect" @command="onCommand" :data="item.children" :itemIcon="itemIcon" :itemMenus="itemMenus" :currentNav="currentNav")
+</template>
 
 <style scoped lang="scss">
   .tree-item {

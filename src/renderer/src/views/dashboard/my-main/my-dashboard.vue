@@ -1,3 +1,59 @@
+<script setup lang="ts">
+    import {ref, reactive } from "vue";
+    // import { TreeItemMenu, TreeItemData  } from "@c/nav-tree/interface.ts"
+    interface TreeItemData {
+    name?: string;
+    icon?: string;
+    id: string;
+    sum?: number;
+    children?: TreeItemData[];
+    AFold?: Boolean;
+    handle?: Boolean;
+  }
+
+  interface TreeItemMenu {
+      name:string;
+      icon: String;
+      id:string;
+      children?: TreeItemMenu[];
+      disabled?: Boolean;
+  }
+
+        const projectList:TreeItemData[] = reactive([
+                { name: "全部应用", id: 'all', sum: 0, handle: false },
+                { name: "未分组", id: 'no-group', sum: 0 , handle: false },
+                { name: "xiao", id: '123', sum: 0, children: [{ name: "全部应用", id: '1all', sum: 0 },
+                { name: "未分组", id: '1no-group', sum: 0 },
+                { name: "其他", id: '1123', sum: 0 },]},
+            ]);
+        const currentItem = ref<TreeItemData>(projectList[0]);
+        const onProjectSelect = function (item:TreeItemData):void {
+            currentItem.value = item;
+        }
+
+
+        const treeItemMenus:TreeItemMenu[] = reactive([
+                { name: "更多", id: 'more', icon: 'icon-dian', disabled: true, children: [{ name: "更多", id: 'more', icon: 'icon-dian', disabled: true}]},
+                { name: "添加组", id: 'add', icon: 'icon-jiahao', disabled: true },
+            ]);
+        const onAddGroup = function ():void {
+            
+        }
+
+
+
+        interface newProjectData {
+            name:string;
+            icon: string;
+            id:string;
+        }
+        const newProjectList:newProjectData[] = reactive([
+                { name: "PC端创建", id: 'web', icon: 'new-project-web.png' },
+                { name: "移动端创建", id: 'mobile', icon: 'new-project-mobile.png' },
+            ]);
+
+</script>
+
 <template lang="pug">
 div#dashboard-my-project 
     div(class='project-manage left')
@@ -35,62 +91,6 @@ div#dashboard-my-project
     Loading
 
 </template>
-
-<script setup lang="ts">
-    import {ref, reactive } from "vue";
-    // import { TreeItemMenu, TreeItemData  } from "@c/nav-tree/interface.ts"
-    interface TreeItemData {
-    name?: string;
-    icon?: string;
-    id: string;
-    sum?: number;
-    children?: [TreeItemData];
-    AFold?: Boolean;
-    handle?: Boolean;
-  }
-
-  interface TreeItemMenu {
-      name:string;
-      icon: String;
-      id:string;
-      children?: [TreeItemMenu];
-      disabled?: Boolean;
-  }
-
-        const projectList:ReadonlyArray<TreeItemData>[] = reactive([
-                { name: "全部应用", id: 'all', sum: 0, handle: false },
-                { name: "未分组", id: 'no-group', sum: 0 , handle: false },
-                { name: "xiao", id: '123', sum: 0, children: [{ name: "全部应用", id: '1all', sum: 0 },
-                { name: "未分组", id: '1no-group', sum: 0 },
-                { name: "其他", id: '1123', sum: 0 },]},
-            ]);
-        const currentItem = ref<TreeItemData>(projectList[0]);
-        const onProjectSelect = function (item:TreeItemData):void {
-            currentItem.value = item;
-        }
-
-
-        const treeItemMenus:ReadonlyArray<TreeItemMenu>[] = reactive([
-                { name: "更多", id: 'more', icon: 'icon-dian', disabled: true, children: [{ name: "更多", id: 'more', icon: 'icon-dian', disabled: true}]},
-                { name: "添加组", id: 'add', icon: 'icon-jiahao', disabled: true },
-            ]);
-        const onAddGroup = function ():void {
-            
-        }
-
-
-
-        interface newProjectData {
-            name:string;
-            icon: string;
-            id:string;
-        }
-        const newProjectList:ReadonlyArray<newProjectData>[] = reactive([
-                { name: "PC端创建", id: 'web', icon: 'new-project-web.png' },
-                { name: "移动端创建", id: 'mobile', icon: 'new-project-mobile.png' },
-            ]);
-
-</script>
 
 <style lang="scss" scoped>
 #dashboard-my-project {

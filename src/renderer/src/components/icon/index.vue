@@ -1,19 +1,19 @@
+<script lang="ts" setup>
+  import { defineProps, withDefaults } from 'vue'
+
+  interface Props {
+    src?: string;
+  }
+
+  const props = withDefaults(defineProps<Props>(), {
+    src: '',
+  })
+</script>
+
 <template lang="pug">
 span(class='c-icon-font')
   i(class='icon-font' :class='src')
 </template>
-
-<script lang="ts" setup>
-  import { ref, defineProps, withDefaults } from 'vue'
-
-  interface Props {
-    src?: String;
-  }
-
-  const props = withDefaults(defineProps<Props>(), {
-    src: ''
-  })
-</script>
 
 <style scoped lang="scss">
   .c-icon-font {

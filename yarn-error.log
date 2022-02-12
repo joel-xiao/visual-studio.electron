@@ -1,0 +1,61 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.17_2/libexec/bin/yarn.js add vue-tsc
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  17.4.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EACCES: permission denied, unlink '/Users/xiao/Desktop/dashboard-editor/node_modules/.bin/asar'
+
+npm manifest: 
+  {
+    "name": "dashboard-editor",
+    "version": "1.0.0",
+    "main": "dist/main/index.cjs",
+    "author": "Joel <xiao2731962667@163.com>",
+    "license": "MIT",
+    "scripts": {
+      "dev": "node scripts/watch.mjs",
+      "build": "node scripts/build.mjs && electron-builder",
+      "tsc-build": "vue-tsc --project src/renderer/tsconfig.json --noEmit && node scripts/build.mjs && electron-builder"
+    },
+    "engines": {
+      "node": ">=14.17.0"
+    },
+    "devDependencies": {
+      "@vitejs/plugin-vue": "^2.1.0",
+      "electron": "16.0.8",
+      "electron-builder": "^22.14.5",
+      "typescript": "^4.5.5",
+      "vite": "^2.7.13",
+      "vite-plugin-resolve": "^1.4.3",
+      "vue": "^3.2.29",
+      "vue-tsc": "^0.31.1"
+    },
+    "env": {
+      "//": "Used in build scripts",
+      "HOST": "127.0.0.1",
+      "PORT": 3344
+    },
+    "keywords": [
+      "vite",
+      "electron",
+      "vue3",
+      "rollup"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

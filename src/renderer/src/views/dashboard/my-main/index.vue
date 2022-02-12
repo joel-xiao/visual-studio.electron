@@ -1,17 +1,3 @@
-<template lang="pug">
-div(class="dashboard-header")
-    div.nav-content
-        span(class="nav-content-span" 
-            @click="onNavSelect(item)"
-            :class="{ active: currentNav.id === item.id }" 
-            :key="item.id"
-            v-for="(item, idx) in navList") 
-            |{{item.label}}
-div(class="dashboard-content")
-    MyDashboard(v-show="currentNav.id === 'dashboard'")
-    
-</template>
-
 <script setup lang="ts">
     import MyDashboard from "./my-dashboard.vue";
     import {ref, reactive } from "vue";
@@ -20,7 +6,7 @@ div(class="dashboard-content")
         label:string;
         id:string;
     }
-    const navList:ReadonlyArray<navData>[] = reactive([
+    const navList:navData[] = reactive([
             { label: "可视化", id: 'dashboard' },
             { label: "网页", id: 'web' },
             { label: "数据", id: 'data' },
@@ -33,6 +19,15 @@ div(class="dashboard-content")
         currentNav.value = nav;
     }
 </script>
+
+<template lang="pug">
+.dashboard-header
+  .nav-content
+    span.nav-content-span(@click="onNavSelect(item)" :class="{ active: currentNav.id === item.id }" :key="item.id" v-for="(item, idx) in navList")
+      | {{item.label}}
+.dashboard-content
+  MyDashboard(v-show="currentNav.id === 'dashboard'")
+</template>
 
 <style lang="scss" scoped>
 #dashboard {

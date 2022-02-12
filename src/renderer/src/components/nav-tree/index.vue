@@ -1,21 +1,3 @@
-<template lang="pug">
-div(class='c-nav-tree')
-  TreeItem( 
-    @select="onNavSelect"
-    @command="onCommand"
-    :data="data"
-    :itemIcon="itemIcon"
-    :itemMenus="itemMenus"
-    :currentNav="currentNav")
-  transition(name='fade')
-    div#content-menu(:style="contentMenuStyle" v-show="contentMenuShow")
-      div.content-menu-item
-        Icon(
-          class="menu-item-icon"
-          src="icon-bianji")
-        span(class="menu-item-label") 重命名
-</template>
-
 <script lang="ts" setup>
   import TreeItem from './tree-item.vue';
   import { ref, reactive, defineProps, withDefaults, defineEmits, onUnmounted } from 'vue'
@@ -26,27 +8,27 @@ div(class='c-nav-tree')
     icon?: string;
     id: string;
     sum?: number;
-    children?: [TreeItemData];
-    AFold?: Boolean;
-    handle?: Boolean;
+    children?: TreeItemData[];
+    AFold?: boolean;
+    handle?: boolean;
   }
 
   interface TreeItemMenu {
       name:string;
       icon: String;
       id:string;
-      children?: [TreeItemMenu];
-      disabled?: Boolean;
+      children?: TreeItemMenu[];
+      disabled?: boolean;
   }
 
   interface Props {
-    data?: [TreeItemData];
-    itemMenus?: [TreeItemMenu];
+    data?: TreeItemData[];
+    itemMenus?: TreeItemMenu[];
     itemIcon?: string;
   }
   const props = withDefaults(defineProps<Props>(), {
-    data:[],
-    itemMenus: [],
+    data: () =>[],
+    itemMenus: () =>[],
     itemIcon: '',
   })
   
@@ -60,11 +42,11 @@ div(class='c-nav-tree')
   onNavSelect(props.data[0]);
 
 
-  const contentMenuStyle:CSSStyleDeclaration = reactive({});
+  const contentMenuStyle:{ left?: string, top?: string } = reactive({});
   const contentMenuShow = ref<Boolean>(false);
   const onContentMenuShow = function (val?:Boolean, el?:HTMLElement):void {
     contentMenuShow.value = !!val;
-    const rect: ClientRect = el && el.getBoundingClientRect();
+    const rect: DOMRect | undefined = el && el.getBoundingClientRect();
     if(val && rect) {
       contentMenuStyle.left = rect.left + 'px';
       contentMenuStyle.top = rect.bottom + 'px';
@@ -92,6 +74,24 @@ div(class='c-nav-tree')
   }
 
 </script>
+
+<template lang="pug">
+div(class='c-nav-tree')
+  TreeItem( 
+    @select="onNavSelect"
+    @command="onCommand"
+    :data="data"
+    :itemIcon="itemIcon"
+    :itemMenus="itemMenus"
+    :currentNav="currentNav")
+  transition(name='fade')
+    div#content-menu(:style="contentMenuStyle" v-show="contentMenuShow")
+      div.content-menu-item
+        Icon(
+          class="menu-item-icon"
+          src="icon-bianji")
+        span(class="menu-item-label") 重命名
+</template>
 
 <style scoped lang="scss">
 .c-nav-tree {
