@@ -32,5 +32,11 @@
     "electron",
     "vue3",
     "rollup"
-  ]
+  ],
+  "dependencies": {
+    "naive-ui": "^2.25.2",
+    "scss": "^0.2.4",
+    "vue-router": "^4.0.12",
+    "vuex": "^4.0.2"
+  }
 }
