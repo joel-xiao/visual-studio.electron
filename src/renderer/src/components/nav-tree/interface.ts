@@ -1,17 +1,17 @@
-export interface treeitemdata {
+export interface TreeItemData {
   name?: string;
   icon?: string;
   id: string;
   sum?: number;
-  children?: treeitemdata[];
+  children?: TreeItemData[];
   AFold?: boolean;
   handle?: boolean;
 }
 
-export interface treeitemmenu {
+export interface TreeItemMenu {
   name: string;
   icon: string;
   id: string;
-  children?: treeitemmenu[];
+  children?: TreeItemMenu[];
   disabled?: boolean;
 }

@@ -48,39 +48,39 @@ const newProjectList: newProjectData[] = reactive([
 
 <template lang="pug">
 div#dashboard-my-project
-    div(class='project-manage left')
-        NavTree(
-            :data="projectList"
-            itemIcon="icon-wenjianjia"
-            :itemMenus="treeItemMenus")
-        //- div(class="manage-title")
-        //-     span 我的分组
-        //-     span(class='add-group pointer') +
-        //- div(class="manage-main")
-        //-     div(class="main-project pointer"
-        //-     @click="onProjectSelect(item)"
-        //-     v-for="(item, idx) in projectList"
-        //-     :class="{[item.id]: !!item.id, active: currentItem.id === item.id}"
-        //-     :key="item.id")
-        //-         span(class="project-name") {{item.name}}
-        //-         span(class="project-num") {{item.sum}}
+  div(class='project-manage left')
+    NavTree(
+      :data="projectList"
+      itemIcon="icon-wenjianjia"
+      :itemMenus="treeItemMenus")
+    //- div(class="manage-title")
+    //-     span 我的分组
+    //-     span(class='add-group pointer') +
+    //- div(class="manage-main")
+    //-     div(class="main-project pointer"
+    //-     @click="onProjectSelect(item)"
+    //-     v-for="(item, idx) in projectList"
+    //-     :class="{[item.id]: !!item.id, active: currentItem.id === item.id}"
+    //-     :key="item.id")
+    //-         span(class="project-name") {{item.name}}
+    //-         span(class="project-num") {{item.sum}}
 
-    //- div(class="project-screen-list right")
-    //-     div(class="new-projects-title")
-    //-         |选择下面的方式进行创建
-    //-     div.new-projects
-    //-         div.new-project(
-    //-             v-for="(item, idx) in newProjectList"
-    //-             :key="item.id")
-    //-             img(:src="require('@/assets/img/dashboard/my-main/' + item.icon)")
-    //-             span.ellipsis.project-type {{item.name}}
-    //-     div.project-header
-    //-         div.project-title
-    //-             h2.ellipsis {{currentItem.name}}
-    //-             span.color-BCC9D4
-    //-                 span.color-2483FF {{currentItem.sum}}
-    //-                 |个
-    Loading
+  //- div(class="project-screen-list right")
+  //-     div(class="new-projects-title")
+  //-         |选择下面的方式进行创建
+  //-     div.new-projects
+  //-         div.new-project(
+  //-             v-for="(item, idx) in newProjectList"
+  //-             :key="item.id")
+  //-             img(:src="require('@/assets/img/dashboard/my-main/' + item.icon)")
+  //-             span.ellipsis.project-type {{item.name}}
+  //-     div.project-header
+  //-         div.project-title
+  //-             h2.ellipsis {{currentItem.name}}
+  //-             span.color-BCC9D4
+  //-                 span.color-2483FF {{currentItem.sum}}
+  //-                 |个
+  Loading
 
 </template>
 
@@ -127,7 +127,7 @@ div#dashboard-my-project
 
         &.active {
           color: #fff;
-          background: url('~@/assets/img/dashboard/my-main/my-project-check.png');
+          background: url("~@/assets/img/dashboard/my-main/my-project-check.png");
           background-repeat: round;
           background-size: contain;
         }
@@ -185,7 +185,7 @@ div#dashboard-my-project
             left: 0;
             width: 100%;
             height: 100%;
-            content: '';
+            content: "";
             background: rgb(36 131 255 / 8%);
           }
         }

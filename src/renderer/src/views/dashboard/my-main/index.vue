@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MyDashboard from './my-dashboard.vue';
-import { ref, reactive  } from 'vue';
+import { ref, reactive } from 'vue';
 
 interface navData {
   label: string;
