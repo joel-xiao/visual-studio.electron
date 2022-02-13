@@ -6,15 +6,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "node scripts/watch.mjs",
-    "build": "node scripts/build.mjs && electron-builder",
-    "tsc-build": "vue-tsc --project src/renderer/tsconfig.json --noEmit && node scripts/build.mjs && electron-builder",
+    "build": "vue-tsc --project src/renderer/tsconfig.json --noEmit && node scripts/build.mjs && electron-builder",
+    "tsc": "vue-tsc --project src/renderer/tsconfig.json --noEmit",
     "test": "jest",
-    "fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx,.vue,.html",
-    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.html",
-    "style:lint": "stylelint . --fix .css,.less,.scss",
+    "es:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx,.vue,.html",
+    "es:lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.html",
+    "style:fix": "stylelint . --fix .css,.less,.scss",
     "log": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js",
-    "prepare": "husky install",
-    "tsc": "vue-tsc --project src/renderer/tsconfig.json --noEmit"
+    "prepare": "husky install"
   },
   "changelog": {
     "bugsUrl": "https://github.com/huoyou/vue_cli3/issues/",
@@ -23,6 +22,7 @@
     "authorEmail": true
   },
   "lint-staged": {
+    "*": "vue-tsc --project src/renderer/tsconfig.json",
     "*.{js,jsx,ts,.tsx,vue,html,md}": "eslint --config .eslintrc.js",
     "*.{css,less,scss}": "stylelint --config .stylelintrc.js",
     "*.{ts,tsx,js,json,html,yml,css,less,md}": "prettier --write"
