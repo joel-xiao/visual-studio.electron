@@ -14,8 +14,8 @@ export default defineComponent({
   props: {
     msg: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
   setup() {
     const store = useStore(key);
@@ -24,8 +24,8 @@ export default defineComponent({
 
     return {
       count,
-      inCrement: () => store.commit('increment'),
+      inCrement: () => store.commit('increment')
     };
-  },
+  }
 });
 </script>

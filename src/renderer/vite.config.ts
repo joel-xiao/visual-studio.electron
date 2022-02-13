@@ -14,7 +14,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    resolveElectron(),
+    resolveElectron()
     /**
      * you can custom other module in here
      * 🚧 need to make sure custom-resolve-module in `dependencies`, that will ensure that the electron-builder can package them correctly
@@ -32,37 +32,35 @@ export default defineConfig({
       '@u': path.resolve(__dirname, 'src/utils'),
       '@a': path.resolve(__dirname, 'src/assets'),
       '@s': path.resolve(__dirname, 'src/service'),
-      '@p': path.resolve(__dirname, 'src/plugins'),
+      '@p': path.resolve(__dirname, 'src/plugins')
       // "layouts": path.resolve(__dirname, "src/layouts"),
       // "dirs": path.resolve(__dirname, "src/directives"),
-    },
+    }
   },
   define: {
-    'process.env': {},
+    'process.env': {}
   },
   base: './',
   build: {
     emptyOutDir: true,
-    outDir: '../../dist/renderer',
+    outDir: '../../dist/renderer'
   },
   server: {
     host: pkg.env.HOST,
-    port: pkg.env.PORT,
-  },
+    port: pkg.env.PORT
+  }
 });
 
 // ------- For use Electron, NodeJs in Renderer-process -------
 // https://github.com/caoxiemeihao/electron-vue-vite/issues/52
-export function resolveElectron(
-  resolves: Parameters<typeof resolve>[0] = {}
-): Plugin {
+export function resolveElectron(resolves: Parameters<typeof resolve>[0] = {}): Plugin {
   const builtins = builtinModules.filter((t) => !t.startsWith('_'));
 
   // https://github.com/caoxiemeihao/vite-plugins/tree/main/packages/resolve#readme
   return resolve({
     electron: electronExport(),
     ...builtinModulesExport(builtins),
-    ...resolves,
+    ...resolves
   });
 
   function electronExport() {

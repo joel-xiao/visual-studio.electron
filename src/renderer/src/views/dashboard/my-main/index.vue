@@ -9,7 +9,7 @@ interface navData {
 const navList: navData[] = reactive([
   { label: '可视化', id: 'dashboard' },
   { label: '网页', id: 'web' },
-  { label: '数据', id: 'data' },
+  { label: '数据', id: 'data' }
   // { label: "我的资产", id: 'com' },
   // { label: "教程",id: 'case' },
 ]);

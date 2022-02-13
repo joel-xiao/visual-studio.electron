@@ -25,14 +25,14 @@ module.exports = {
     es2021: true,
     node: true,
     // 开启setup语法糖环境
-    'vue/setup-compiler-macros': true,
+    'vue/setup-compiler-macros': true
   },
   globals: {
     Message: true,
     env: true,
     useRoute: true,
     useRouter: true,
-    useStore: true,
+    useStore: true
   },
   // 继承eslint推荐的规则集，vue基本的规则集，typescript的规则集
   extends: [
@@ -42,20 +42,19 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'prettier',
     'plugin:prettier/recommended',
-    'plugin:jest/recommended',
+    'plugin:jest/recommended'
   ],
   /* 指定如何解析语法。可以为空，但若不为空，只能配该值，原因见下文。*/
   parser: 'vue-eslint-parser',
   /* 优先级低于parse的语法解析配置 */
   parserOptions: {
-    ecmaVersion: 13,
     parser: '@typescript-eslint/parser', // Specifies the ESLint parser
     ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
     ecmaFeatures: {
       // tsx: true, // Allows for the parsing of JSX
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   // 添加vue和@typescript-eslint插件，增强eslint的能力
   plugins: ['vue', '@typescript-eslint'],
@@ -113,9 +112,9 @@ module.exports = {
           'mounted',
           'methods',
           ['template', 'render'],
-          'renderError',
-        ],
-      },
+          'renderError'
+        ]
+      }
     ],
     'vue/no-multiple-template-root': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
@@ -123,14 +122,14 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/no-empty-function': 0,
+    '@typescript-eslint/no-empty-function': 0
   },
   overrides: [
     {
       files: ['**/__tests__/*.{j,t}s?(x)'],
       env: {
-        mocha: true,
-      },
-    },
-  ],
+        mocha: true
+      }
+    }
+  ]
 };

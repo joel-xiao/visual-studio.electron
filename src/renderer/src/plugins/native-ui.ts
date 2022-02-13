@@ -13,7 +13,7 @@ import {
   NLayoutSider,
   NLayoutFooter,
   NH2,
-  NButton,
+  NButton
 } from 'naive-ui';
 
 const components = [
@@ -25,10 +25,10 @@ const components = [
   NLayoutSider,
   NLayoutFooter,
   NH2,
-  NButton,
+  NButton
 ];
 const naive = create({
-  components,
+  components
 });
 
 export default naive;

@@ -17,27 +17,21 @@ const routes: Array<RouteRecordRaw> = [
         path: '/dashboard',
         redirect: '/dashboard/main',
         name: 'dashboard',
-        component: () =>
-          import(/* webpackChunkName: "dashboard" */ '@v/dashboard/index.vue'),
+        component: () => import(/* webpackChunkName: "dashboard" */ '@v/dashboard/index.vue'),
         children: [
           {
             path: '/main',
             name: 'main',
             component: () =>
-              import(
-                /* webpackChunkName: "dashboard" */ '@v/dashboard/my-main/index.vue'
-              ),
-          },
-        ],
-      },
-    ],
-  },
+              import(/* webpackChunkName: "dashboard" */ '@v/dashboard/my-main/index.vue')
+          }
+        ]
+      }
+    ]
+  }
 ];
 
-const routePathJoinHandler = function (
-  routes: Array<RouteRecordRaw>,
-  parentPath?: string
-): void {
+const routePathJoinHandler = function (routes: Array<RouteRecordRaw>, parentPath?: string): void {
   routes.forEach((route) => {
     if (parentPath) {
       route.path = parentPath + route.path;
@@ -53,7 +47,7 @@ routePathJoinHandler(routes);
 // history: createWebHistory(process.env.BASE_URL),
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes
 });
 
 export function setupRouter(app: App<Element>) {

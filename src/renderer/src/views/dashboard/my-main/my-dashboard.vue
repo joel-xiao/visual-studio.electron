@@ -12,9 +12,9 @@ const projectList: TreeItemData[] = reactive([
     children: [
       { name: '全部应用', id: '1all', sum: 0 },
       { name: '未分组', id: '1no-group', sum: 0 },
-      { name: '其他', id: '1123', sum: 0 },
-    ],
-  },
+      { name: '其他', id: '1123', sum: 0 }
+    ]
+  }
 ]);
 const currentItem = ref<TreeItemData>(projectList[0]);
 const onProjectSelect = function (item: TreeItemData): void {
@@ -27,9 +27,9 @@ const treeItemMenus = reactive<TreeItemMenu[]>([
     id: 'more',
     icon: 'icon-dian',
     disabled: true,
-    children: [{ name: '更多', id: 'more', icon: 'icon-dian', disabled: true }],
+    children: [{ name: '更多', id: 'more', icon: 'icon-dian', disabled: true }]
   },
-  { name: '添加组', id: 'add', icon: 'icon-jiahao', disabled: true },
+  { name: '添加组', id: 'add', icon: 'icon-jiahao', disabled: true }
 ]);
 // const onAddGroup = function (): void {
 
@@ -42,7 +42,7 @@ interface newProjectData {
 }
 const newProjectList: newProjectData[] = reactive([
   { name: 'PC端创建', id: 'web', icon: 'new-project-web.png' },
-  { name: '移动端创建', id: 'mobile', icon: 'new-project-mobile.png' },
+  { name: '移动端创建', id: 'mobile', icon: 'new-project-mobile.png' }
 ]);
 </script>
 

@@ -49,6 +49,6 @@ export function useLoading() {
     removeLoading() {
       document.head.removeChild(oStyle);
       document.body.removeChild(oDiv);
-    },
+    }
   };
 }

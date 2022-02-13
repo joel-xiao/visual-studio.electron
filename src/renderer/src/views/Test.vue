@@ -7,16 +7,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'Vuex',
   setup() {
-    const count = ref<number>(0)
+    const count = ref<number>(0);
     const increment = () => {
-      count.value += 1
-    }
-    return { count, increment }
+      count.value += 1;
+    };
+    return { count, increment };
   }
-})
+});
 </script>

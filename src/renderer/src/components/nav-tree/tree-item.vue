@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
   data: () => [],
   itemIcon: '',
   itemMenus: () => [],
-  currentNav: null,
+  currentNav: null
 });
 
 const emit = defineEmits(['select', 'command']);

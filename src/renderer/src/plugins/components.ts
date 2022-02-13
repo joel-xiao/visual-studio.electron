@@ -6,5 +6,5 @@ export default {
       const install = uses[path].default?.install;
       install && install(app);
     }
-  },
+  }
 };

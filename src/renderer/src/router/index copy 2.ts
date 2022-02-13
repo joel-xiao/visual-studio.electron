@@ -9,7 +9,7 @@ import {
   createRouter,
   createWebHashHistory,
   RouteRecordRaw,
-  RouteLocationNormalized,
+  RouteLocationNormalized
 } from 'vue-router';
 
 interface IRoute extends RouteLocationNormalized {
@@ -19,10 +19,7 @@ interface IRoute extends RouteLocationNormalized {
 const modulesFiles = import.meta.globEager('./modules/**/*.(ts|js)');
 let routerList: Array<RouteRecordRaw> = [];
 for (const path in modulesFiles) {
-  routerList = [
-    ...routerList,
-    ...(modulesFiles[path].default || modulesFiles[path]),
-  ];
+  routerList = [...routerList, ...(modulesFiles[path].default || modulesFiles[path])];
 }
 
 const router = createRouter({
@@ -39,7 +36,7 @@ const router = createRouter({
       }
       return { left: 0, top: to.meta.scrollTop || 0 };
     }
-  },
+  }
 });
 // @ts-ignore
 router.beforeEach((to: IRoute, from, next) => {
@@ -53,7 +50,7 @@ router.beforeEach((to: IRoute, from, next) => {
     } else {
       next({
         path: `/login`, // 未登录则跳转至login页面
-        query: { redirect: to.fullPath }, // 登陆成功后回到当前页面，这里传值给login页面，to.fullPath为当前点击的页面
+        query: { redirect: to.fullPath } // 登陆成功后回到当前页面，这里传值给login页面，to.fullPath为当前点击的页面
       });
     }
   } else {

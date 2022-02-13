@@ -1,13 +1,6 @@
 <script lang="ts" setup>
 import TreeItem from './tree-item.vue';
-import {
-  ref,
-  reactive,
-  defineProps,
-  withDefaults,
-  defineEmits,
-  onUnmounted,
-} from 'vue';
+import { ref, reactive, defineProps, withDefaults, defineEmits, onUnmounted } from 'vue';
 import type { TreeItemData, TreeItemMenu } from './interface';
 
 interface Props {
@@ -18,7 +11,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   data: () => [],
   itemMenus: () => [],
-  itemIcon: '',
+  itemIcon: ''
 });
 
 const emit = defineEmits(['select', 'command']);

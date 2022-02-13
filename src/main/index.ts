@@ -18,9 +18,9 @@ let win: BrowserWindow | null = null;
 async function createWindow() {
   const window = {
     webPreferences: {
-      preload: path.join(__dirname, '../preload/index.cjs'),
+      preload: path.join(__dirname, '../preload/index.cjs')
     },
-    icon: icon_url && path.join(__dirname, icon_url),
+    icon: icon_url && path.join(__dirname, icon_url)
   };
   win = new BrowserWindow(window);
 
