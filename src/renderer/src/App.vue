@@ -5,7 +5,7 @@ n-loading-bar-provider
 </template>
 
 <script setup lang="ts">
-// import HelloWorld from '@c/HelloWorld.vue';
+// 1import HelloWorld from '@c/HelloWorld.vue';
 </script>
 
 <style lang="scss">
