@@ -1,4 +1,4 @@
-const compareFunc = require('compare-func');
+const compareFunc = `require('compare-func')`;
 module.exports = {
   writerOpts: {
     transform: (commit, context) => {

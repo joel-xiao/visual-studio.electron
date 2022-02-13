@@ -39,15 +39,15 @@ const onCommand = function (event: any, cmd: TreeItemMenu): void {
 </script>
 <template lang="pug">
 .tree-item(v-for="item in data" :key="item.id")
-  .tree-item-nav(@click="onSelect(item)" :class="{active: currentNav?.id === item.id}" :style="treeItemStyle")
+  .tree-item-nav(@click="onSelect(item)" :class="{ active: currentNav?.id === item.id }" :style="treeItemStyle")
     .tree-item-left
-      Icon.arrow(src="icon-xiangyoujiantou size-12" :class="{active: AFold}" v-if="item?.children?.length" @click.stop="onArrow(item)")
+      Icon.arrow(src="icon-xiangyoujiantou size-12" :class="{ active: AFold }" v-if="item?.children?.length" @click.stop="onArrow(item)")
       span.dot(v-else)
       Icon.name-icon(v-if="item.icon || itemIcon" :src="item.icon || itemIcon")
       span.name-icon-margin(v-else)
-      span.tree-item-labe {{item.name}}
+      span.tree-item-labe {{ item.name }}
     .tree-item-handle(v-if="item.handle !== false")
-      Icon(v-for="item in itemMenus" :key="item.id" :class="item.id" @click.stop="onCommand($event,item)" :src="item.icon")
+      Icon(v-for="item in itemMenus" :key="item.id" :class="item.id" @click.stop="onCommand($event, item)" :src="item.icon")
   .tree-item-swapper(v-if="!!item?.children?.length" v-show="AFold")
     TreeItem(:recursion="recursion + 1" @select="onSelect" @command="onCommand" :data="item.children" :itemIcon="itemIcon" :itemMenus="itemMenus" :currentNav="currentNav")
 </template>
