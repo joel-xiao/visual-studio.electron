@@ -4,31 +4,31 @@ import 'vfonts/Lato.css';
 import 'vfonts/FiraCode.css';
 
 import {
-    create,
-    NLoadingBarProvider,
-    NSpace,
-    NSpin,
-    NLayout,
-    NLayoutHeader,
-    NLayoutSider,
-    NLayoutFooter,
-    NH2,
-    NButton,
+  create,
+  NLoadingBarProvider,
+  NSpace,
+  NSpin,
+  NLayout,
+  NLayoutHeader,
+  NLayoutSider,
+  NLayoutFooter,
+  NH2,
+  NButton,
 } from 'naive-ui';
 
 const components = [
-    NLoadingBarProvider,
-    NSpace,
-    NSpin,
-    NLayout,
-    NLayoutHeader,
-    NLayoutSider,
-    NLayoutFooter,
-    NH2,
-    NButton,
+  NLoadingBarProvider,
+  NSpace,
+  NSpin,
+  NLayout,
+  NLayoutHeader,
+  NLayoutSider,
+  NLayoutFooter,
+  NH2,
+  NButton,
 ];
 const naive = create({
-    components,
+  components,
 });
 
 export default naive;

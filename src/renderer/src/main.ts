@@ -7,8 +7,13 @@ import store from './store';
 import native from './plugins/native-ui';
 import components from './plugins/components';
 
-createApp(App).use(components).use(native).use(store).use(router).mount('#app')
-    .$nextTick(window.removeLoading);
+createApp(App)
+  .use(components)
+  .use(native)
+  .use(store)
+  .use(router)
+  .mount('#app')
+  .$nextTick(window.removeLoading);
 
 console.log('fs', window.fs);
 console.log('ipcRenderer', window.ipcRenderer);

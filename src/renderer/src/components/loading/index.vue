@@ -4,14 +4,13 @@ div(class='c-loading')
     n-spin(size="large")
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style scoped lang="scss">
-  .c-loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
+.c-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 </style>

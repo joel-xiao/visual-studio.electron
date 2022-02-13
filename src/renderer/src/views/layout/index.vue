@@ -6,5 +6,4 @@ Content
 import Content from './layout-content.vue';
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

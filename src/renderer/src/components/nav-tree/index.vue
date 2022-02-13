@@ -1,59 +1,63 @@
 <script lang="ts" setup>
 import TreeItem from './tree-item.vue';
-import { ref, reactive, defineProps, withDefaults, defineEmits, onUnmounted } from 'vue';
+import {
+  ref,
+  reactive,
+  defineProps,
+  withDefaults,
+  defineEmits,
+  onUnmounted,
+} from 'vue';
 import type { TreeItemData, TreeItemMenu } from './interface';
 
-  interface Props {
-    data?: TreeItemData[];
-    itemMenus?: TreeItemMenu[];
-    itemIcon?: string;
-  }
+interface Props {
+  data?: TreeItemData[];
+  itemMenus?: TreeItemMenu[];
+  itemIcon?: string;
+}
 const props = withDefaults(defineProps<Props>(), {
-    data: () => [],
-    itemMenus: () => [],
-    itemIcon: '',
+  data: () => [],
+  itemMenus: () => [],
+  itemIcon: '',
 });
 
-const emit = defineEmits([ 'select', 'command' ]);
+const emit = defineEmits(['select', 'command']);
 
 const currentNav = ref<TreeItemData>();
-const onNavSelect = function (item:TreeItemData):void {
-    currentNav.value = item;
-    emit('select', item);
+const onNavSelect = function (item: TreeItemData): void {
+  currentNav.value = item;
+  emit('select', item);
 };
 onNavSelect(props.data[0]);
 
-
-const contentMenuStyle:{ left?: string, top?: string } = reactive({});
+const contentMenuStyle: { left?: string; top?: string } = reactive({});
 const contentMenuShow = ref<boolean>(false);
-const onContentMenuShow = function (val?:boolean, el?:HTMLElement):void {
-    contentMenuShow.value = !!val;
-    const rect: DOMRect | undefined = el && el.getBoundingClientRect();
-    if (val && rect) {
-        contentMenuStyle.left = rect.left + 'px';
-        contentMenuStyle.top = rect.bottom + 'px';
-    }
+const onContentMenuShow = function (val?: boolean, el?: HTMLElement): void {
+  contentMenuShow.value = !!val;
+  const rect: DOMRect | undefined = el && el.getBoundingClientRect();
+  if (val && rect) {
+    contentMenuStyle.left = rect.left + 'px';
+    contentMenuStyle.top = rect.bottom + 'px';
+  }
 };
 onContentMenuShow(false);
 
-
-const onTreeClick = function ():void {
-    onContentMenuShow(false);
+const onTreeClick = function (): void {
+  onContentMenuShow(false);
 };
 document.addEventListener('click', onTreeClick);
 onUnmounted(() => {
-    document.removeEventListener('click', onTreeClick);
+  document.removeEventListener('click', onTreeClick);
 });
 
-const onCommand = function ( el:HTMLElement, cmd:TreeItemMenu):void {
-    if (cmd?.children?.length) {
-        onContentMenuShow(true, el);
-        return;
-    }
-    onContentMenuShow(false);
-    emit('command', cmd);
+const onCommand = function (el: HTMLElement, cmd: TreeItemMenu): void {
+  if (cmd?.children?.length) {
+    onContentMenuShow(true, el);
+    return;
+  }
+  onContentMenuShow(false);
+  emit('command', cmd);
 };
-
 </script>
 
 <template lang="pug">
@@ -87,7 +91,7 @@ div(class='c-nav-tree')
   }
   .fade-enter-from,
   .fade-leave-to {
-    transform:translateY(-10px);
+    transform: translateY(-10px);
     opacity: 0;
   }
 
@@ -100,13 +104,13 @@ div(class='c-nav-tree')
     background: var(--color-gray-700);
     border: 1px solid var(--color-tran-6);
     .content-menu-item {
-      height:24px;
+      height: 24px;
       line-height: 24px;
-      display:flex;
+      display: flex;
       align-items: center;
       border-radius: var(--border-radius-4);
       padding: 0 4px;
-      transition: background .15s;
+      transition: background 0.15s;
 
       &:hover {
         background: var(--color-tran-12);

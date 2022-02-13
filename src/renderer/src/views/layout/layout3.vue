@@ -46,21 +46,21 @@ import headerVue from './layout-header.vue';
 
 <style lang="scss" scoped>
 #layout {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    & > .layout-header {
-        height: 36px;
-        padding: 0 10px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  & > .layout-header {
+    height: 36px;
+    padding: 0 10px;
+  }
+  & > .layout-contanner {
+    top: 35px !important;
+    .layout-sider {
+      background: blue;
     }
-    & > .layout-contanner {
-        top: 35px !important;
-        .layout-sider {
-            background: blue;
-        }
-        .layout-content {
-            background: green;
-        }
+    .layout-content {
+      background: green;
     }
+  }
 }
 </style>
