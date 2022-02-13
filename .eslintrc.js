@@ -57,7 +57,7 @@ module.exports = {
     }
   },
   // 添加vue和@typescript-eslint插件，增强eslint的能力
-  plugins: ['vue', '@typescript-eslint'],
+  plugins: ['@typescript-eslint'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
@@ -109,22 +109,22 @@ module.exports = {
     'no-irregular-whitespace': 1, // 禁止在字符串和注释之外不规则的空白
     'no-use-before-define': 1, // 禁止在变量定义之前使用它们
     'no-useless-concat': 1, // 禁止不必要的字符串字面量或模板字面量的连接
+    '@typescript-eslint/ban-ts-comment': 0, // @ts-ignore
+    '@typescript-eslint/no-unused-vars': 0,
+    'vue/multi-word-component-names': 0,
 
     // 'no-unused-vars': 0, // 禁止出现未使用过的变量
     // 'vars-on-top': 0, // 要求所有的 var 声明出现在它们所在的作用域顶部
     // 'prefer-destructuring': 0, // 优先使用数组和对象解构
     // 'no-useless-escape': 0, // 禁止不必要的转义字符
     // 'consistent-return': 0, // 要求 return 语句要么总是指定返回的值，要么不指定
-    // 'camelcase': 0, // 强制使用骆驼拼写法命名约定
+    // camelcase: 0, // 强制使用骆驼拼写法命名约定
     // 'prefer-const': 0, // 要求使用 const 声明那些声明后不再被修改的变量.如果一个变量从不重新分配，使用const声明更好。const 声明告诉读者，“这个变量永远不会被重新分配，”减少认知负荷并提高可维护性。
     // 'vue/no-multiple-template-root': 0,
     // '@typescript-eslint/explicit-module-boundary-types': 0,
     // '@typescript-eslint/no-var-requires': 0,
     // '@typescript-eslint/no-explicit-any': 0,
-    // '@typescript-eslint/no-empty-function': 0,
-    '@typescript-eslint/ban-ts-comment': 0, // @ts-ignore
-    '@typescript-eslint/no-unused-vars': 0,
-    'vue/multi-word-component-names': 0
+    '@typescript-eslint/no-empty-function': 0
   },
   overrides: [
     {
