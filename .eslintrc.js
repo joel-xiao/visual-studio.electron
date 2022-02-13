@@ -40,7 +40,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
     'plugin:prettier/recommended',
     'plugin:jest/recommended'
   ],
@@ -49,7 +48,7 @@ module.exports = {
   /* 优先级低于parse的语法解析配置 */
   parserOptions: {
     parser: '@typescript-eslint/parser', // Specifies the ESLint parser
-    ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
+    ecmaVersion: 'latest', // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
     ecmaFeatures: {
       // tsx: true, // Allows for the parsing of JSX

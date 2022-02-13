@@ -127,7 +127,7 @@ div#dashboard-my-project
 
         &.active {
           color: #fff;
-          background: url('~@/assets/img/dashboard/my-main/my-project-check.png');
+          background: url(`~@/assets/img/dashboard/my-main/my-project-check.png`);
           background-repeat: round;
           background-size: contain;
         }
