@@ -127,7 +127,7 @@ div#dashboard-my-project
 
         &.active {
           color: #fff;
-          background: url("~@/assets/img/dashboard/my-main/my-project-check.png");
+          background: url('~@/assets/img/dashboard/my-main/my-project-check.png');
           background-repeat: round;
           background-size: contain;
         }
@@ -185,7 +185,7 @@ div#dashboard-my-project
             left: 0;
             width: 100%;
             height: 100%;
-            content: "";
+            content: ' ';
             background: rgb(36 131 255 / 8%);
           }
         }
