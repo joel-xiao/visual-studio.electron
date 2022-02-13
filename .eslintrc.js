@@ -24,6 +24,6 @@ module.exports = {
   // 添加vue和@typescript-eslint插件，增强eslint的能力
   plugins: ['vue', '@typescript-eslint'],
   rules: {
-    'vue/multi-word-component-names': 'off',
+    // 'vue/multi-word-component-names': 'off',
   },
 };
