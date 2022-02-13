@@ -22,6 +22,12 @@
     "authorName": true,
     "authorEmail": true
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint --config .commitlintrc.js"
+    }
+  },
   "lint-staged": {
     "*.{js,jsx,ts,.tsx,vue,html,md}": "eslint --config .eslintrc.js",
     "*.{css,less,scss}": "stylelint --config .stylelintrc.js",
