@@ -17,9 +17,10 @@
       "@u/*": ["src/renderer/src/utils/*"],
       "@a/*": ["src/renderer/src/assets/*"],
       "@s/*": ["src/renderer/src/service/*"],
-      "@p/*": ["src/renderer/src/plugins/*"],
+      "@p/*": ["src/renderer/src/plugins/*"]
     },
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client", "jest"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

@@ -1,9 +1,12 @@
 <template lang="pug">
 n-loading-bar-provider
   router-view
+  //- HelloWorld(msg="qwq")
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// import HelloWorld from '@c/HelloWorld.vue';
+</script>
 
 <style lang="scss">
 html,

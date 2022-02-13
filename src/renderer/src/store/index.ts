@@ -1,8 +1,13 @@
-import { createStore } from 'vuex';
+/*
+ * @Description: index
+ * @Autor: Joel
+ */
+import type { App } from 'vue';
+import { createPinia } from 'pinia';
+import piniaPersist from 'pinia-plugin-persist';
 
-export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-});
+export function setupStore(app: App<Element>) {
+  const pinia = createPinia();
+  pinia.use(piniaPersist);
+  app.use(pinia);
+}
