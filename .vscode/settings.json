@@ -20,8 +20,9 @@
   // 格式化校验
   "javascript.validate.enable": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认格式化工具为prettier
-  "editor.formatOnSave": false, // 保存自动格式化
+  "editor.formatOnSave": true, // 保存自动格式化
   "editor.codeActionsOnSave": {
+    "source.fixAll": true,
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },

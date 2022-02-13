@@ -11,9 +11,6 @@ domReady().then(() => {
 });
 
 // --------- Expose some API to Renderer process. ---------
-contextBridge.exposeInMainWorld('fs', fs);
-contextBridge.exposeInMainWorld('removeLoading', removeLoading);
-contextBridge.exposeInMainWorld('ipcRenderer', withPrototype(ipcRenderer));
 
 // `exposeInMainWorld` can not detect `prototype` attribute and methods, manually patch it.
 function withPrototype(obj: Record<string, any>): Record<string, any> {
@@ -33,3 +30,7 @@ function withPrototype(obj: Record<string, any>): Record<string, any> {
   }
   return obj;
 }
+
+contextBridge.exposeInMainWorld('fs', fs);
+contextBridge.exposeInMainWorld('removeLoading', removeLoading);
+contextBridge.exposeInMainWorld('ipcRenderer', withPrototype(ipcRenderer));

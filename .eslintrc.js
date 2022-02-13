@@ -122,7 +122,8 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/no-empty-function': 0
+    '@typescript-eslint/no-empty-function': 0,
+    'vue/multi-word-component-names': 0
   },
   overrides: [
     {
