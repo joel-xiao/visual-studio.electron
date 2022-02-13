@@ -13,19 +13,21 @@ import User from './components/user.vue';
 
 <style lang="scss" scoped>
 #layout-header {
-  height: 100%;
-  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+
   & > .logo {
-    height: 100%;
     position: relative;
     max-width: 262px;
+    height: 100%;
+
     img {
       position: absolute;
-      left: 0px;
       top: -8px;
+      left: 0;
       height: 150%;
     }
   }

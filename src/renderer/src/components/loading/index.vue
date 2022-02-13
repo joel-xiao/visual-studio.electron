@@ -9,8 +9,8 @@ div(class='c-loading')
 <style scoped lang="scss">
 .c-loading {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100%;
 }
 </style>

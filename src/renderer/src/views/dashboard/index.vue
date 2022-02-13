@@ -8,7 +8,7 @@ div#dashboard(class="not-select")
 <style lang="scss" scoped>
 #dashboard {
   position: relative;
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 </style>

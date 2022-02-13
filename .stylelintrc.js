@@ -4,7 +4,12 @@
  * @description: css校验配置
  */
 module.exports = {
-  extends: ["stylelint-config-standard-scss", "stylelint-config-prettier"],
+  extends: [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier",
+    "stylelint-config-recommended-vue/scss",
+    "stylelint-config-recess-order"
+  ],
   rules: {
     "declaration-colon-space-after": "always-single-line",
     "declaration-colon-space-before": "never",
@@ -23,7 +28,9 @@ module.exports = {
         ignore: ["after-comment", "first-nested"],
       },
     ],
+    "font-family-no-missing-generic-family-keyword": null,
     // style calc中使用v-bind
     "function-calc-no-unspaced-operator": null,
+    "scss/double-slash-comment-whitespace-inside": null
   },
 };

@@ -7,8 +7,9 @@ div#user
 
 <style lang="scss" scoped>
 #user {
-  height: 100%;
   width: 36px;
+  height: 100%;
+
   img {
     height: 100%;
   }

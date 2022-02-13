@@ -1,25 +1,25 @@
-
 /*
   仪表盘模块
 */
 #dashboard {
   background: #212121;
+
   --color-bg-dark: #080808;
-  --color-tran-6: rgba(255,255,255,0.06);
-  --color-tran-12: rgba(255,255,255,0.12);
-  --color-tran-50: rgba(255,255,255,0.5);
-  --color-tran-85: rgba(255,255,255,0.85);
-  --color-tran-100: rgba(255,255,255,1);
-  --color-gray-700: rgba(48,48,48,1);
-  --border-black: rgb(8,8,8);
+  --color-tran-6: rgb(255 255 255 / 6%);
+  --color-tran-12: rgb(255 255 255 / 12%);
+  --color-tran-50: rgb(255 255 255 / 50%);
+  --color-tran-85: rgb(255 255 255 / 85%);
+  --color-tran-100: rgb(255 255 255 / 100%);
+  --color-gray-700: rgb(48 48 48 / 100%);
+  --border-black: rgb(8 8 8);
   --border-radius-8: 8px;
   --border-radius-6: 6px;
-  --dashboard-main-color:#2681ff;
-  --dashboard-main-color:#2681ff;
+  --dashboard-main-color: #2681ff;
 
   .border-radius-8 {
     border-radius: var(--border-radius-8);
   }
+
   .border-radius-6 {
     border-radius: var(--border-radius-6);
   }

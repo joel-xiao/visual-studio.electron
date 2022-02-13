@@ -14,12 +14,14 @@ import Content from './layout-content.vue';
 <style lang="scss" scoped>
 #layout {
   position: relative;
-  height: 100%;
   width: 100%;
+  height: 100%;
+
   & > .layout-header {
     height: 36px;
     padding: 0 10px;
   }
+
   & > .layout-contanner {
     top: 35px !important;
   }

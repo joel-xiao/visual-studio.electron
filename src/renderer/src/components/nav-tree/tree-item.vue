@@ -56,30 +56,31 @@ const onCommand = function (event: any, cmd: TreeItemMenu): void {
 .tree-item {
   .tree-item-nav {
     position: relative;
-    margin: 4px 0px;
-    height: 32px;
-    border-radius: var(--border-radius-6);
-    overflow: hidden;
-    color: var(--color-tran-85);
-    padding-left: 4px;
-    padding-right: 4px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 32px;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin: 4px 0;
+    overflow: hidden;
+    color: var(--color-tran-85);
     cursor: pointer;
+    border-radius: var(--border-radius-6);
 
     .tree-item-left {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       .arrow {
-        cursor: pointer;
-        transform: scale(0.9);
         position: absolute;
         left: -20px;
+        cursor: pointer;
         transition: transform 0.2s;
+        transform: scale(0.9);
+
         &.active {
           transform: rotate(90deg);
         }
@@ -90,8 +91,8 @@ const onCommand = function (event: any, cmd: TreeItemMenu): void {
         left: -12px;
         width: 8px;
         height: 8px;
-        border-radius: 2px;
         background: var(--color-tran-12);
+        border-radius: 2px;
       }
 
       .name-icon {
@@ -106,17 +107,18 @@ const onCommand = function (event: any, cmd: TreeItemMenu): void {
     .tree-item-handle {
       position: absolute;
       right: 0;
-      padding: 0 4px;
-      height: 100%;
       display: flex;
       align-items: center;
+      height: 100%;
+      padding: 0 4px;
       opacity: 0;
       transition: opacity 0.15s;
 
       .c-icon-font {
         color: var(--color-tran-50);
-        transition: all 0.15s;
         cursor: pointer;
+        transition: all 0.15s;
+
         &:hover {
           color: var(--color-tran-85);
           background: var(--color-tran-12);

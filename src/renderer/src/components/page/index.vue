@@ -8,9 +8,9 @@ div(class='c-page')
 <style scoped lang="scss">
 .c-page {
   position: relative;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
   padding: 4px;
 }
 </style>

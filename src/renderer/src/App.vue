@@ -12,14 +12,15 @@ n-loading-bar-provider
 html,
 body,
 #app {
-  height: 100%;
   width: 100%;
   min-width: 1024px;
+  height: 100%;
   overflow: hidden;
 }
+
 body > #app {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
 }
 </style>

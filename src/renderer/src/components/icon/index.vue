@@ -20,16 +20,16 @@ span(class='c-icon-font')
   display: inline-block;
   width: 20px;
   height: 20px;
-  border-radius: 4px;
-  overflow: hidden;
   margin: 2px;
+  overflow: hidden;
+  border-radius: 4px;
 
   .icon-font {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 20px;
     height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
 </style>

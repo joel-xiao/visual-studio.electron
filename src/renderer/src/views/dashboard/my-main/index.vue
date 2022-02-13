@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MyDashboard from './my-dashboard.vue';
-import { ref, reactive } from 'vue';
+import { ref, reactive  } from 'vue';
 
 interface navData {
   label: string;
@@ -24,7 +24,7 @@ const onNavSelect = function (nav: navData): void {
 .dashboard-header
   .nav-content
     span.nav-content-span(@click="onNavSelect(item)" :class="{ active: currentNav.id === item.id }" :key="item.id" v-for="(item, idx) in navList")
-      | {{item.label}}
+      | {{ item.label }}
 .dashboard-content
   MyDashboard(v-show="currentNav.id === 'dashboard'")
 </template>
@@ -32,37 +32,41 @@ const onNavSelect = function (nav: navData): void {
 <style lang="scss" scoped>
 #dashboard {
   position: relative;
-  height: 100%;
   width: 100%;
+  height: 100%;
+
   .dashboard-header {
     display: flex;
     align-items: center;
-    padding: 0 20px;
     height: 42px;
+    padding: 0 20px;
     border-bottom: 1px solid var(--border-black);
+
     .nav-content {
-      background-color: var(--color-bg-dark);
-      border-radius: var(--border-radius-8);
-      overflow: hidden;
+      display: flex;
       float: left;
       height: 32px;
       padding: 3px;
-      display: flex;
+      overflow: hidden;
+      background-color: var(--color-bg-dark);
+      border-radius: var(--border-radius-8);
+
       .nav-content-span {
-        padding: 0 20px;
         display: flex;
         align-items: center;
-        cursor: pointer;
+        padding: 0 20px;
         color: var(--color-tran-50);
-        transition: all 0.2s;
+        cursor: pointer;
         border-radius: var(--border-radius-6);
+        transition: all 0.2s;
 
         &:hover {
           color: var(--color-tran-85);
         }
+
         &.active {
-          background: var(--color-tran-12);
           color: var(--color-tran-85);
+          background: var(--color-tran-12);
         }
       }
     }

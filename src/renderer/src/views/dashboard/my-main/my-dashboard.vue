@@ -87,24 +87,24 @@ div#dashboard-my-project
 <style lang="scss" scoped>
 #dashboard-my-project {
   position: relative;
-  height: 100%;
   width: 100%;
+  height: 100%;
 
   .project-manage {
     width: 264px;
     height: 100%;
-    border-right: 1px solid var(--border-black);
     padding: 8px;
+    border-right: 1px solid var(--border-black);
 
     .manage-title {
-      font-size: 14px;
-      padding: 0 30px 0 24px;
-      height: 56px;
-      border-bottom: 1px solid #27343e;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      padding: 0 30px 0 24px;
+      font-size: 14px;
       color: #fff;
+      border-bottom: 1px solid #27343e;
 
       .add-group {
       }
@@ -112,23 +112,24 @@ div#dashboard-my-project
 
     .manage-main {
       .main-project {
-        font-size: 14px;
-        padding: 0 30px 0 50px;
-        height: 36px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
+        height: 36px;
+        padding: 0 30px 0 50px;
+        font-size: 14px;
         color: #b9c2cc;
         transition: all 0.2s;
+
         &:hover {
           color: var(--dashboard-main-color);
         }
 
         &.active {
+          color: #fff;
           background: url('~@/assets/img/dashboard/my-main/my-project-check.png');
           background-repeat: round;
           background-size: contain;
-          color: #fff;
         }
 
         &:not(.all, .no-group),
@@ -140,16 +141,17 @@ div#dashboard-my-project
   }
 
   .project-screen-list {
-    padding: 0 50px 0 20px;
-    height: 100%;
     width: calc(100% - 240px);
+    height: 100%;
+    padding: 0 50px 0 20px;
+
     .new-projects-title {
+      padding: 0;
+      overflow: hidden;
       font-size: 14px;
       font-weight: 700;
       color: var(--dashboard-main-color);
-      padding: 0;
       text-overflow: ellipsis;
-      overflow: hidden;
       white-space: nowrap;
     }
 
@@ -160,29 +162,31 @@ div#dashboard-my-project
       margin-right: -32px;
 
       .new-project {
-        width: 258px;
-        height: 78px;
-        margin: 16px 32px 16px 0;
-        vertical-align: middle;
-        border: 1px solid #39414d;
-        background: #22272e;
+        position: relative;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        position: relative;
-        cursor: pointer;
+        width: 258px;
+        height: 78px;
+        margin: 16px 32px 16px 0;
         color: #fff;
+        vertical-align: middle;
+        cursor: pointer;
+        background: #22272e;
+        border: 1px solid #39414d;
+
         &:hover {
           border-color: var(--dashboard-main-color);
+
           &::after {
-            content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
             top: 0;
             left: 0;
-            background: rgba(36, 131, 255, 0.08);
+            width: 100%;
+            height: 100%;
+            content: '';
+            background: rgb(36 131 255 / 8%);
           }
         }
 
@@ -191,8 +195,8 @@ div#dashboard-my-project
         }
 
         .project-type {
-          padding-left: 8px;
           flex: 1;
+          padding-left: 8px;
           font-size: 14px;
         }
       }
@@ -201,15 +205,15 @@ div#dashboard-my-project
     .project-header {
       position: sticky;
       top: 70px;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #434b55;
-      padding-bottom: 5px;
-      padding-top: 10px;
       height: 56px;
+      padding-top: 10px;
+      padding-bottom: 5px;
       background: #171b22;
-      z-index: 1;
+      border-bottom: 1px solid #434b55;
 
       .project-title {
         display: flex;
@@ -218,8 +222,8 @@ div#dashboard-my-project
 
         h2 {
           max-width: 200px;
-          font-size: 14px;
           padding: 0 10px;
+          font-size: 14px;
           color: var(--dashboard-main-color);
           border-left: 2px solid var(--dashboard-main-color);
         }
@@ -231,8 +235,8 @@ div#dashboard-my-project
 
         span.color-BCC9D4 {
           font-size: 14px;
-          letter-spacing: 1px;
           color: #bcc9d4;
+          letter-spacing: 1px;
         }
       }
     }
