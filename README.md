@@ -7,7 +7,7 @@
 
 <!-- **[English](README.md) | 简体中文** -->
 
-🥳 `Electron` + `Vue3` + `Vite2` + `Ts` + `Scss` + `TsLint` + `EsLint` + `StyleLint` + `Prettier` +
+🥳 `Electron` + `Vue3` + `Vite2` + `Ts` + `Ts` + `TsLint` + `EsLint` + `StyleLint` + `Prettier` +
 `CommitLint` + `husky` + `lint-staged` 整合模板 -- **结构简单，容易上手！**
 
 ## 概述
@@ -18,8 +18,8 @@
 所以说如果你是对 -- 工程模板追求精简的 Coder，或者刚入世的小白想弄明白`Electron`整合类模板最基础的工
 作原理，亦或者你是大神只是想偷懒少干点活；那么这个模板最合适你不过了。
 
-尽管如此，我还是希望你对`Electron` `Vite`有一定的基础；因为除了项目结构简单外，这份`README`也显得 “
-精简” 。
+尽管如此，我还是希望你对`Electron` `Vite` `Ts` `Scss`有一定的基础；因为除了项目结构简单外，这
+份`README`也显得 “ 精简” 。
 
 模板的具体实现细节我相信你看两遍源码就能把它吃透了 😋
 
