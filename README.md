@@ -5,7 +5,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/caoxiemeihao/electron-vue-vite?color=fa6470&style=flat)
 ![GitHub forks](https://img.shields.io/github/forks/caoxiemeihao/electron-vue-vite?style=flat)
 
-**[English](README.md) | 简体中文**
+<!-- **[English](README.md) | 简体中文** -->
 
 🥳 `Electron` + `Vue3` + `Vite2` + `Ts` + `Scss` + `TsLint` + `EsLint` + `StyleLint` + `Prettier` +
 `CommitLint` + `husky` + `lint-staged` 整合模板 -- **结构简单，容易上手！**
