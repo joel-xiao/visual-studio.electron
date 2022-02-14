@@ -11,7 +11,7 @@
     "es:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx,.vue,.html",
     "es:lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.html",
     "style:fix": "stylelint . --fix .css,.less,.scss",
-    "format": "prettier --write .vue,.ts,.tsx,.js,.jsx,.css,.less,.scss,.json,.md",
+    "format": "prettier --write ./**/*.{vue,ts,js,scss,json,md}",
     "test": "jest",
     "log": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js",
     "prepare": "husky install"

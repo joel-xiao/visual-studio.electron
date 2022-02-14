@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.17_2/libexec/bin/yarn.js lint-staged
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.17_2/libexec/bin/yarn.js format
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Library/Apple/usr/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/xiao/Desktop/dashboard-editor/package.json: Unexpected token / in JSON at position 1087
+  SyntaxError: /Users/xiao/Desktop/dashboard-editor/package.json: Unexpected token / in JSON at position 576
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.22.17_2/libexec/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -35,7 +35,8 @@ npm manifest:
       "es:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx,.vue,.html",
       "es:lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.html",
       "style:fix": "stylelint . --fix .css,.less,.scss",
-      "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}",
+      // "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}",
+      "format": "prettier --write ./**/*.{vue,ts,js,less,scss,json,md}",
       "test": "jest",
       "log": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js",
       "prepare": "husky install"
@@ -47,16 +48,15 @@ npm manifest:
       "authorEmail": true
     },
     "lint-staged": {
-      "*.": ["yarn es:fix","yarn es:fix", "yarn style:fix", "yarn format", "yarn test", "yarn tsc"]
-      // "*.{js,jsx,ts,.tsx,vue,html,md}": [
-      //   "eslint --config .eslintrc.js"
-      // ],
-      // "*.{css,less,scss}": [
-      //   "stylelint --config .stylelintrc.js"
-      // ],
-      // "*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}": [
-      //   "prettier --write"
-      // ]
+      "*.{js,jsx,ts,.tsx,vue,html}": [
+        "eslint --fix"
+      ],
+      "*.{css,less,scss}": [
+        "stylelint --fix"
+      ],
+      "*.{vue,ts,tsx,js,jsx,css,css,less,scss,json,md}": [
+        "prettier --write"
+      ]
     },
     "engines": {
       "node": ">=14.17.0"
