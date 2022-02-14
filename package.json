@@ -25,9 +25,7 @@
   "lint-staged": {
     "*": [
       "yarn es:fix",
-      "yarn style:fix",
-      "yarn tsc",
-      "yarn test"
+      "yarn style:fix"
     ]
   },
   "engines": {
