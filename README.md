@@ -32,6 +32,9 @@ git clone https://github.com/xiaowenlong1022/dashboard-editor.git
 # enter the project directory
 cd dashboard-editor
 
+# switch the dev
+git switch dev
+
 # install dependency
 npm install or yarn
 
