@@ -21,6 +21,11 @@
     "authorName": true,
     "authorEmail": true
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*": "vue-tsc --project src/renderer/tsconfig.json",
     "*.{js,jsx,ts,.tsx,vue,html,md}": "eslint --config .eslintrc.js",
