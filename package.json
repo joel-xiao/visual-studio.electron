@@ -11,6 +11,7 @@
     "es:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx,.vue,.html",
     "es:lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.html",
     "style:fix": "stylelint . --fix .css,.less,.scss",
+    "format": "prettier --write ./**/*.{vue,ts,tsx,js,jsx,css,less,scss,json,md}",
     "test": "jest",
     "log": "conventional-changelog -p custom-config -i CHANGELOG.md -s -r 0  -n ./changelog-option.js",
     "prepare": "husky install"
@@ -22,9 +23,15 @@
     "authorEmail": true
   },
   "lint-staged": {
-    "*.{js,jsx,ts,.tsx,vue,html,md}": "eslint .",
-    "*.{css,less,scss}": "stylelint --config .stylelintrc.js",
-    "*.{ts,tsx,js,json,html,yml,css,less,md}": "prettier --write"
+    "*.{js,jsx,ts,.tsx,vue,html,md}": [
+      "eslint --fix"
+    ],
+    "*.{css,less,scss}": [
+      "stylelint --fix"
+    ],
+    "*.{ts,tsx,js,json,html,yml,css,less,md}": [
+      "prettier --write"
+    ]
   },
   "engines": {
     "node": ">=14.17.0"

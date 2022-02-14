@@ -3,7 +3,7 @@
   // 基础设置
   "editor.detectIndentation": false, // 重置 editor.tabSize属性
   "editor.tabSize": 2, // 缩进2单元格
-  "files.autoSave": "afterDelay", // 打开自动保存
+  // "files.autoSave": "afterDelay", // 打开自动保存
   "editor.fontSize": 14, // 默认字体大小
   "editor.lineHeight": 20, // 行高
   "editor.mouseWheelZoom": false, // 通过使用鼠标滚轮同时按住 Ctrl 可缩放编辑器的字体
