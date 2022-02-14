@@ -7,7 +7,8 @@
 
 **[English](README.md) | 简体中文**
 
-🥳 `Electron` + `Vue3` + `Vite2` 整合模板 -- **结构简单，容易上手！**
+🥳 `Electron` + `Vue3` + `Vite2` + `Ts` + `Scss` + `TsLint` + `EsLint` + `StyleLint` + `Prettier` +
+`CommitLint` + `husky` + `lint-staged` 整合模板 -- **结构简单，容易上手！**
 
 ## 概述
 
@@ -45,21 +46,41 @@ npm run dev or yarn dev
 
 ```tree
 ├
-├── dist                      构建后，根据 src 目录生成
+├── dist                        构建后，根据 src 目录生成
 ├   ├── main
 ├   ├── preload
 ├   ├── renderer
 ├
+├── .vscode
+├   ├── settings.json           vscode 规范 配置
+├
 ├── scripts
-├   ├── build.mjs             项目构建脚本，对应 npm run build
-├   ├── vite.config.mjs       主进程, 预加载脚本源码 vite 配置
-├   ├── watch.mjs             项目开发脚本，对应 npm run dev
+├   ├── build.mjs               项目构建脚本，对应 npm run build
+├   ├── vite.config.mjs         主进程, 预加载脚本源码 vite 配置
+├   ├── watch.mjs               项目开发脚本，对应 npm run dev
 ├
 ├── src
-├   ├── main                  主进程源码
-├   ├── preload               预加载脚本源码
-├   ├── renderer              渲染进程源码
-├       ├── vite.config.ts    渲染进程 vite 配置
+├   ├── main                    主进程源码
+├   ├── preload                 预加载脚本源码
+├   ├── renderer                渲染进程源码
+├       ├── tests               渲染进 jest 单元测试文件
+├       ├── jest.config.js      渲染进 jest 配置
+├       ├── postcss.config.js   渲染进 移动端适配 配置
+├       ├── tsconfig.json       渲染进 tslint 配置
+├       ├── vite.config.ts      渲染进程 vite 配置
+├
+├── .commitlintrc.js            git commit message 规范 配置
+├── .editorconfig               跨不同的编辑器和IDE为多个开发人员维护一致的编码风格的配置文件
+├── .eslintignore               指定 eslint 忽略文件和目录
+├── .eslintrc.js                eslint 配置项
+├── .gitignore                  指定 git 忽略文件和目录
+├── .prettierrc.js              prettier格式化 配置项
+├── .stylelintignore            指定 stylelint 忽略文件和目录
+├── .stylelintrc.js             stylelint 配置项
+├── changelog-option.js         git commit message 扩展阅读 配置
+├── tsconfig.json               tslint 配置
+├── types.d.ts                  NodeJS 类型声明
+
 ├
 ```
 
