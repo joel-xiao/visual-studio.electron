@@ -2,7 +2,7 @@
 import { ref, reactive } from 'vue';
 import type { TreeItemMenu, TreeItemData } from '@c/nav-tree/interface';
 
-const projectList: TreeItemData[] = reactive([
+const projectList: [TreeItemData] = reactive([
   { name: '全部应用', id: 'all', sum: 0, handle: false },
   { name: '未分组', id: 'no-group', sum: 0, handle: false },
   {
