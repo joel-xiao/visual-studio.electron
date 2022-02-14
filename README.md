@@ -68,7 +68,7 @@ npm run dev or yarn dev
 ├   ├── renderer                渲染进程源码
 ├       ├── tests               渲染进 jest 单元测试文件
 ├       ├── jest.config.ts      渲染进 jest 配置
-├       ├── postcss.config.ts   渲染进 移动端适配 配置
+├       ├── postcss.config.js   渲染进 移动端适配 配置
 ├       ├── tsconfig.json       渲染进 tslint 配置
 ├       ├── vite.config.ts      渲染进程 vite 配置
 ├

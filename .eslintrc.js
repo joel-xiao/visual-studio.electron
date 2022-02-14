@@ -109,9 +109,10 @@ module.exports = {
     'no-irregular-whitespace': 1, // 禁止在字符串和注释之外不规则的空白
     'no-use-before-define': 1, // 禁止在变量定义之前使用它们
     'no-useless-concat': 1, // 禁止不必要的字符串字面量或模板字面量的连接
+    '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/ban-ts-comment': 0, // @ts-ignore
     '@typescript-eslint/no-unused-vars': 0,
-    'vue/multi-word-component-names': 0,
+    'vue/multi-word-component-names': 0
 
     // 'no-unused-vars': 0, // 禁止出现未使用过的变量
     // 'vars-on-top': 0, // 要求所有的 var 声明出现在它们所在的作用域顶部
@@ -123,8 +124,7 @@ module.exports = {
     // 'vue/no-multiple-template-root': 0,
     // '@typescript-eslint/explicit-module-boundary-types': 0,
     // '@typescript-eslint/no-var-requires': 0,
-    '@typescript-eslint/no-explicit-any': 2,
-    '@typescript-eslint/no-empty-function': 0
+    // '@typescript-eslint/no-empty-function': 0
   },
   overrides: [
     {
