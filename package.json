@@ -23,7 +23,11 @@
     "authorEmail": true
   },
   "lint-staged": {
-    "*": []
+    "*.": [
+      "yarn es:fix",
+      "yarn style:fix",
+      "yarn tsc"
+    ]
   },
   "engines": {
     "node": ">=14.17.0"

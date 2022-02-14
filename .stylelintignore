@@ -1,3 +1,7 @@
+dist
+release
+.eslintignore
+.stylelintignore
 *.js
 *.tsx
 *.ts
