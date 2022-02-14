@@ -24,13 +24,13 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,.tsx,vue,html}": [
-      "eslint --fix"
+      "yarn es:fix"
     ],
     "*.{css,less,scss}": [
-      "stylelint --fix"
+      "yarn style:fix"
     ],
-    "*.{vue,ts,tsx,js,jsx,css,css,less,scss,json,md}": [
-      "prettier --write"
+    "./**/*.{vue,ts,js,scss,json,md}": [
+      "yarn format"
     ]
   },
   "engines": {
