@@ -22,7 +22,6 @@
     "authorEmail": true
   },
   "lint-staged": {
-    "*": "vue-tsc --project src/renderer/tsconfig.json",
     "*.{js,jsx,ts,.tsx,vue,html,md}": "eslint --config .eslintrc.js",
     "*.{css,less,scss}": "stylelint --config .stylelintrc.js",
     "*.{ts,tsx,js,json,html,yml,css,less,md}": "prettier --write"
