@@ -22,7 +22,7 @@
     "authorEmail": true
   },
   "lint-staged": {
-    "*.{js,jsx,ts,.tsx,vue,html,md}": "eslint --config .eslintrc.js",
+    "*.{js,jsx,ts,.tsx,vue,html,md}": "eslint .",
     "*.{css,less,scss}": "stylelint --config .stylelintrc.js",
     "*.{ts,tsx,js,json,html,yml,css,less,md}": "prettier --write"
   },
