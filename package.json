@@ -23,10 +23,11 @@
     "authorEmail": true
   },
   "lint-staged": {
-    "*.": [
+    "*": [
       "yarn es:fix",
       "yarn style:fix",
-      "yarn tsc"
+      "yarn tsc",
+      "yarn test"
     ]
   },
   "engines": {
