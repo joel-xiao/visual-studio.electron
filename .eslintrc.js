@@ -101,8 +101,8 @@ module.exports = {
         ]
       }
     ],
+    'no-redeclare': 2, // 禁止多次声明同一变量
     'vue/require-v-for-key': 1, // 当v-for写在自定义组件上时，它需要同时使用v-bind：key。在其他元素上，v-bind：key也最好写。
-    'no-redeclare': 1, // 禁止多次声明同一变量
     'no-fallthrough': 1, // 禁止 case 语句落空
     'no-lonely-if': 1, // 禁止 if 作为唯一的语句出现在 else 语句中.如果一个if陈述是该else块中唯一的陈述，那么使用一个else if表格通常会更清晰。
     'array-callback-return': 1, // 强制数组方法的回调函数中有 return 语句,Array有几种过滤，映射和折叠的方法。如果我们忘记return在这些回调中写入语句，那可能是一个错误。
