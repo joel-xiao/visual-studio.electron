@@ -6,6 +6,10 @@ interface navData {
   label: string;
   id: string;
 }
+interface navData {
+  label: string;
+  id: string;
+}
 const navList: navData[] = reactive([
   { label: '可视化', id: 'dashboard' },
   { label: '网页', id: 'web' },
