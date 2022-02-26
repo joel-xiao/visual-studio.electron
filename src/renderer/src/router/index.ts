@@ -44,9 +44,9 @@ const routePathJoinHandler = function (routes: Array<RouteRecordRaw>, parentPath
 };
 routePathJoinHandler(routes);
 
-// history: createWebHistory(process.env.BASE_URL),
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(process.env.BASE_URL),
+  // history: createWebHistory(),
   routes
 });
 

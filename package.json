@@ -50,6 +50,7 @@
     "prettier": "^2.5.1",
     "typescript": "^4.5.5",
     "vite": "^2.7.13",
+    "vite-plugin-compression": "^0.5.1",
     "vite-plugin-resolve": "^1.4.3",
     "vue": "^3.2.29",
     "vue-tsc": "^0.31.1"
@@ -61,8 +62,10 @@
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vue/test-utils": "^2.0.0-rc.18",
+    "@vueuse/core": "^7.6.2",
     "amfe-flexible": "^2.2.1",
     "autoprefixer": "^10.4.2",
+    "axios": "^0.26.0",
     "conventional-changelog-cli": "^2.2.2",
     "conventional-changelog-custom-config": "^0.3.1",
     "eslint-plugin-jest": "^26.1.0",

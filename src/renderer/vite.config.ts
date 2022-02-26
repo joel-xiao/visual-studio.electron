@@ -2,6 +2,7 @@
 import path from 'path';
 import { builtinModules } from 'module';
 import { defineConfig, Plugin } from 'vite';
+import viteCompression from 'vite-plugin-compression';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import resolve from 'vite-plugin-resolve';
@@ -82,6 +83,13 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: 'gzip',
+      ext: '.gz'
+    }),
     resolveElectron()
     /**
      * you can custom other module in here
@@ -111,7 +119,13 @@ export default defineConfig({
   base: './',
   build: {
     emptyOutDir: true,
-    outDir: '../../dist/renderer'
+    outDir: '../../dist/renderer',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
   },
   server: {
     host: pkg.env.HOST,
