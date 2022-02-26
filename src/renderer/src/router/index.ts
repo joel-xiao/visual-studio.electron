@@ -2,20 +2,19 @@
  * @Description: router
  * @Autor: Joel
  */
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import layout from '@v/layout/index.vue';
 import type { App } from 'vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/dashboard',
+    redirect: '/dashboard/main',
     name: 'Home',
     component: layout,
     children: [
       {
         path: '/dashboard',
-        redirect: '/dashboard/main',
         name: 'dashboard',
         component: () => import(/* webpackChunkName: "dashboard" */ '@v/dashboard/index.vue'),
         children: [
@@ -45,8 +44,8 @@ const routePathJoinHandler = function (routes: Array<RouteRecordRaw>, parentPath
 routePathJoinHandler(routes);
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  // history: createWebHistory(),
+  // history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
   routes
 });
 

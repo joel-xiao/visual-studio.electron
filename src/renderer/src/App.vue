@@ -1,8 +1,8 @@
 <template lang="pug">
 n-config-provider(:theme="darkTheme" :theme-overrides="themeOverrides" :locale="native.locale" :date-locale="native.dateLocale" class="app-main")
   n-loading-bar-provider
-    router-view
-  //- HelloWorld(msg="qwq")
+    router-view(v-slot="{ Component }")
+      component(:is="Component")
 </template>
 
 <script setup lang="ts">
