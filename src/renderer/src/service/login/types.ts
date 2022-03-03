@@ -3,5 +3,5 @@ export interface ILoginParams {
   passWord: string | number;
 }
 export interface ILoginApi {
-  login: (params: ILoginParams) => Promise<any>;
+  login: (params: ILoginParams) => Promise<object>;
 }

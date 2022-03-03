@@ -13,7 +13,7 @@ domReady().then(() => {
 // --------- Expose some API to Renderer process. ---------
 
 // `exposeInMainWorld` can not detect `prototype` attribute and methods, manually patch it.
-function withPrototype(obj: Record<string, any>): Record<string, any> {
+function withPrototype(obj: Record<string, object>): Record<string, object> {
   const protons = Object.getPrototypeOf(obj);
 
   for (const [key, value] of Object.entries(protons)) {
@@ -21,7 +21,7 @@ function withPrototype(obj: Record<string, any>): Record<string, any> {
 
     if (typeof value === 'function') {
       // Some native API not work in Renderer-process, like `NodeJS.EventEmitter['on']`. Wrap a function patch it.
-      obj[key] = function (...args: any): any {
+      obj[key] = function (...args: []): [] {
         return value.call(obj, ...args);
       };
     } else {

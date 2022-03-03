@@ -1,9 +1,34 @@
-# 1.0.0 (2022-02-14)
+# 1.0.0 (2022-02-26)
 
 ### ✅ Tests | 测试
 
+- commit linst ([4ca96e0](https://github.com/xiaowenlong1022/dashboard-editor/commit/4ca96e0)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
+- commit linst ([e2e9323](https://github.com/xiaowenlong1022/dashboard-editor/commit/e2e9323)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
+- commit linst ([bbdef9b](https://github.com/xiaowenlong1022/dashboard-editor/commit/bbdef9b)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
+- commit linst ([8b07f33](https://github.com/xiaowenlong1022/dashboard-editor/commit/8b07f33)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
+- commit linst ([7fca095](https://github.com/xiaowenlong1022/dashboard-editor/commit/7fca095)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
+- commit linst ([34e8030](https://github.com/xiaowenlong1022/dashboard-editor/commit/34e8030)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
+- commit linst ([3cb5327](https://github.com/xiaowenlong1022/dashboard-editor/commit/3cb5327)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
+- commit linst ([355fe62](https://github.com/xiaowenlong1022/dashboard-editor/commit/355fe62)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
+- commit linst ([75c0e7a](https://github.com/xiaowenlong1022/dashboard-editor/commit/75c0e7a)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
 - s ([0f6ed8e](https://github.com/xiaowenlong1022/dashboard-editor/commit/0f6ed8e)) by: **肖文龙**
   (joel.xiao@dclingcloud.com)
+
+### ✨ Features | 新功能
+
+- 更新一批配置 ([bbc3d26](https://github.com/xiaowenlong1022/dashboard-editor/commit/bbc3d26)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
+- 更新一批配置 ([51d75d6](https://github.com/xiaowenlong1022/dashboard-editor/commit/51d75d6)) by:
+  **肖文龙** (joel.xiao@dclingcloud.com)
 
 ### 🐛 Bug Fixes | Bug 修复
 
@@ -166,3 +191,38 @@
   龙** (joel.xiao@dclingcloud.com)
 - first commit ([a272095](https://github.com/xiaowenlong1022/dashboard-editor/commit/a272095)) by:
   **肖文龙** (joel.xiao@dclingcloud.com)
+
+### 📝 Documentation | 文档
+
+- README.md ([dd0b37e](https://github.com/xiaowenlong1022/dashboard-editor/commit/dd0b37e)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([e37c15c](https://github.com/xiaowenlong1022/dashboard-editor/commit/e37c15c)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([31d2369](https://github.com/xiaowenlong1022/dashboard-editor/commit/31d2369)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([37c5320](https://github.com/xiaowenlong1022/dashboard-editor/commit/37c5320)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([6689feb](https://github.com/xiaowenlong1022/dashboard-editor/commit/6689feb)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([f869297](https://github.com/xiaowenlong1022/dashboard-editor/commit/f869297)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([e6805b6](https://github.com/xiaowenlong1022/dashboard-editor/commit/e6805b6)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([bb9f8b4](https://github.com/xiaowenlong1022/dashboard-editor/commit/bb9f8b4)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([28b3c70](https://github.com/xiaowenlong1022/dashboard-editor/commit/28b3c70)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([cea8030](https://github.com/xiaowenlong1022/dashboard-editor/commit/cea8030)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([d1cc00b](https://github.com/xiaowenlong1022/dashboard-editor/commit/d1cc00b)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([8200851](https://github.com/xiaowenlong1022/dashboard-editor/commit/8200851)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([ec072d3](https://github.com/xiaowenlong1022/dashboard-editor/commit/ec072d3)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([324b667](https://github.com/xiaowenlong1022/dashboard-editor/commit/324b667)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([905f476](https://github.com/xiaowenlong1022/dashboard-editor/commit/905f476)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)
+- README.md ([32f69ee](https://github.com/xiaowenlong1022/dashboard-editor/commit/32f69ee)) by: **肖
+  文龙** (joel.xiao@dclingcloud.com)

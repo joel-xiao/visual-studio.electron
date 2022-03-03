@@ -33,8 +33,8 @@ const onArrow = function (item: TreeItemData): void {
   AFold.value = item.AFold;
 };
 
-const onCommand = function (event: any, cmd: TreeItemMenu): void {
-  emit('command', event.path[1], cmd);
+const onCommand = function (event: PointerEvent, cmd: TreeItemMenu): void {
+  emit('command', event, cmd);
 };
 </script>
 <template lang="pug">
@@ -47,7 +47,7 @@ const onCommand = function (event: any, cmd: TreeItemMenu): void {
       span.name-icon-margin(v-else)
       span.tree-item-labe {{ item.name }}
     .tree-item-handle(v-if="item.handle !== false")
-      Icon(v-for="item in itemMenus" :key="item.id" :class="item.id" @click.stop="onCommand($event, item)" :src="item.icon")
+      Icon(v-for="item in itemMenus" :key="item.id" :class="item.id" @click.stop.prevent="onCommand($event, item)" :src="item.icon")
   .tree-item-swapper(v-if="!!item?.children?.length" v-show="AFold")
     TreeItem(:recursion="recursion + 1" @select="onSelect" @command="onCommand" :data="item.children" :itemIcon="itemIcon" :itemMenus="itemMenus" :currentNav="currentNav")
 </template>

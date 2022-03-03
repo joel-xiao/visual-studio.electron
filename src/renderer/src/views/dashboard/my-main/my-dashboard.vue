@@ -16,10 +16,10 @@ const projectList: TreeItemData[] = reactive([
     ]
   }
 ]);
-const currentItem = ref<TreeItemData>(projectList[0]);
-const onProjectSelect = function (item: TreeItemData): void {
-  currentItem.value = item;
-};
+// const currentItem = ref<TreeItemData>(projectList[0]);
+// const onProjectSelect = function (item: TreeItemData): void {
+//   currentItem.value = item;
+// };
 
 const treeItemMenus = reactive<TreeItemMenu[]>([
   {
