@@ -14,6 +14,7 @@
   --border-black: rgb(8 8 8);
   --border-radius-8: 8px;
   --border-radius-6: 6px;
+  --border-radius-4: 4px;
   --dashboard-main-color: #2681ff;
 
   .border-radius-8 {
@@ -22,5 +23,9 @@
 
   .border-radius-6 {
     border-radius: var(--border-radius-6);
+  }
+
+  .border-radius-4 {
+    border-radius: var(--border-radius-4);
   }
 }

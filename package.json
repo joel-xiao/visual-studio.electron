@@ -88,8 +88,7 @@
     "typescript-eslint": "^0.0.1-alpha.0",
     "vue-global-api": "^0.4.1",
     "vue-jest": "^5.0.0-alpha.10",
-    "vue-router": "^4.0.12",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.0.12"
   },
   "env": {
     "//": "Used in build scripts",

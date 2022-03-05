@@ -43,13 +43,33 @@ onUnmounted(() => {
   document.removeEventListener('click', onTreeClick);
 });
 
-const onCommand = function (event: { path: HTMLElement[] }, cmd: TreeItemMenu): void {
+let commandData = reactive<{
+  item: TreeItemData | null;
+  cmd: TreeItemMenu | null;
+}>({
+  item: null,
+  cmd: null
+});
+
+const onMenuCommand = function (cmd: TreeItemMenu): void {
+  console.log(cmd);
+  emit('command', cmd);
+};
+
+const onCommand = function (
+  event: { path: HTMLElement[] },
+  cmd: TreeItemMenu,
+  item: TreeItemData
+): void {
+  commandData.cmd = cmd;
+  commandData.item = item;
+
   if (cmd?.children?.length) {
     onContentMenuShow(true, event.path[1]);
     return;
   }
   onContentMenuShow(false);
-  emit('command', cmd);
+  onMenuCommand(cmd);
 };
 </script>
 
@@ -64,11 +84,11 @@ div(class='c-nav-tree')
     :currentNav="currentNav")
   transition(name='fade')
     div#content-menu(:style="contentMenuStyle" v-show="contentMenuShow")
-      div.content-menu-item
+      div.content-menu-item(v-for="(item) in commandData?.cmd?.children" :key="item.id" @click.prevent="onMenuCommand(item)")
         Icon(
           class="menu-item-icon"
-          src="icon-bianji")
-        span(class="menu-item-label") 重命名
+          :src="item.icon")
+        span(class="menu-item-label") {{item.name}}
 </template>
 
 <style scoped lang="scss">
@@ -93,7 +113,6 @@ div(class='c-nav-tree')
     position: fixed;
     left: 0;
     width: 166px;
-    padding: 4px;
     background: var(--color-gray-700);
     border: 1px solid var(--color-tran-6);
     border-radius: var(--border-radius-6);
@@ -103,12 +122,14 @@ div(class='c-nav-tree')
       align-items: center;
       height: 24px;
       padding: 0 4px;
+      margin: 4px;
       line-height: 24px;
       border-radius: var(--border-radius-4);
       transition: background 0.15s;
 
       &:hover {
-        background: var(--color-tran-12);
+        cursor: pointer;
+        background: var(--color-tran-6);
       }
 
       .menu-item-icon {

@@ -27,7 +27,10 @@ const treeItemMenus = reactive<TreeItemMenu[]>([
     id: 'more',
     icon: 'icon-dian',
     disabled: true,
-    children: [{ name: '更多', id: 'more', icon: 'icon-dian', disabled: true }]
+    children: [
+      { name: '编辑', id: 'edit', icon: 'icon-bianji', disabled: true },
+      { name: '删除', id: 'delete', icon: 'icon-delete', disabled: true }
+    ]
   },
   { name: '添加组', id: 'add', icon: 'icon-jiahao', disabled: true }
 ]);
