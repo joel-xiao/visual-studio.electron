@@ -29,7 +29,7 @@
     "./**/*.{css,less,scss}": [
       "yarn style:fix"
     ],
-    "./**/*.{vue,ts,js,scss,json,md}": [
+    "./**/*.{vue,ts,js,json,md}": [
       "yarn format"
     ]
   },
