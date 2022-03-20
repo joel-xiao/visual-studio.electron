@@ -58,8 +58,8 @@
   --border-radius-8: 8px;
   --border-radius-6: 6px;
   --border-radius-4: 4px;
-  --shadow-s: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  --shadow-m: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  --shadow-s: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-m: 0 5px 10px rgba(0, 0, 0, 0.15);
   --color-text-primary: var(--theme-color-gray-800);
   --color-text-secondary: var(--theme-color-gray-700);
   --color-text-assistant: var(--theme-color-gray-600);
@@ -110,6 +110,7 @@
   --mg-color-button-normal-bg-pressing: var(--mg-theme-button-normal-pressing);
 
   color: var(--color-text);
+
   .border-radius-8 {
     border-radius: var(--border-radius-8);
   }
