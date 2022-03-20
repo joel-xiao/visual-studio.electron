@@ -2,7 +2,7 @@ ya
 <template lang="pug">
 div.editor-left-panel
   div.panel-tab_bar
-    PanelTabBar(:data="tabBars" v-model="selectTab")
+    PanelTabBar(:data="tabBars" v-model="selectTab" @select="onSelect")
   PanelLayer(
     v-if="tabBars[0].show"
     v-show="selectTab === tabBars[0]"
@@ -37,6 +37,10 @@ const tabBars = reactive<Tab[]>([
 
 const selectTab = ref<Tab>(tabBars[1]);
 selectTab.value.show = true;
+
+const onSelect = function (tab: Tab) {
+  tab.show = true;
+};
 
 const layerData: LayerItemData[] = reactive([
   { name: '全部应用', id: 'all', sum: 0, handle: false },

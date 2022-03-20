@@ -18,10 +18,11 @@ const props = withDefaults(defineProps<Props>(), {
   modelValue: () => ({})
 });
 
-const emit = defineEmits(['command', 'update:modelValue']);
+const emit = defineEmits(['select', 'update:modelValue']);
 
 const onSelect = function (tab: Tab): void {
   emit('update:modelValue', tab);
+  emit('select', tab);
 };
 </script>
 

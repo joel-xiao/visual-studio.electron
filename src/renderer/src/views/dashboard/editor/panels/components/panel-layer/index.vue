@@ -38,8 +38,6 @@ const onNavSelect = function (item: LayerItemData): void {
   emit('select', item);
 };
 
-onNavSelect(props.data[0]);
-
 const clickMenu: { x?: number; y?: number; show: boolean } = reactive({
   show: false,
   y: 0,

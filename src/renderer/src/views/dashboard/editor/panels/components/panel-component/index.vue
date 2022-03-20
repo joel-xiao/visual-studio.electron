@@ -24,7 +24,7 @@ import type { ComponentData } from './interface';
 import ComponentItem from './component-item.vue';
 
 const getIcon = (icon: string): string => {
-  return `/src/assets/img/dashboard/editor/panel-component/${icon}`;
+  return `/image/dashboard/editor/panel-component/${icon}`;
 };
 const data = reactive<ComponentData[]>([
   {
@@ -44,12 +44,12 @@ const data = reactive<ComponentData[]>([
               {
                 name: 'button',
                 id: '2',
-                icon: getIcon('qw.jpg')
+                icon: getIcon('qw.png')
               },
               {
                 name: 'button',
                 id: '2',
-                icon: getIcon('qw.jpg')
+                icon: getIcon('qw.png')
               }
             ]
           },
@@ -62,12 +62,12 @@ const data = reactive<ComponentData[]>([
               {
                 name: 'button',
                 id: '2',
-                icon: getIcon('qw.jpg')
+                icon: getIcon('qw.png')
               },
               {
                 name: 'button',
                 id: '2',
-                icon: getIcon('qw.jpg')
+                icon: getIcon('qw.png')
               }
             ]
           }
