@@ -62,12 +62,12 @@ const data = reactive<ComponentData[]>([
               {
                 name: 'button',
                 id: '2',
-                icon: getIcon('qw.jpeg')
+                icon: getIcon('qw.jpg')
               },
               {
                 name: 'button',
                 id: '2',
-                icon: getIcon('qw.jpeg')
+                icon: getIcon('qw.jpg')
               }
             ]
           }
