@@ -24,7 +24,7 @@ import type { ComponentData } from './interface';
 import ComponentItem from './component-item.vue';
 
 const getIcon = (icon: string): string => {
-  return `/image/dashboard/editor/panel-component/${icon}`;
+  return `image/dashboard/editor/panel-component/${icon}`;
 };
 const data = reactive<ComponentData[]>([
   {
