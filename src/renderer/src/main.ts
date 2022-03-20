@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 // import 'amfe-flexible';// 用于设置rem基准值
 import '@a/style/index.scss';
+import '@a/style/font/iconfont.css';
 import App from './App.vue';
 // import '@/registerServiceWorker'
 import router, { setupRouter } from '@/router/index';
