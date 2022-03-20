@@ -11,6 +11,7 @@ release
 *.eot
 *.ttf
 *.woff
+*.woff2
 *.css
 *.md
 *.log
