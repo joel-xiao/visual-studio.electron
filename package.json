@@ -26,10 +26,7 @@
     "./**/*.{js,jsx,ts,.tsx,vue,html}": [
       "yarn es:fix"
     ],
-    "./**/*.{css,less,scss}": [
-      "yarn style:fix"
-    ],
-    "./**/*.{vue,ts,js,json,md}": [
+    "./**/*.{vue,ts,js,scss,json,md}": [
       "yarn format"
     ]
   },
