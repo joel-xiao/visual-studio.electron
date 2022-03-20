@@ -20,9 +20,15 @@ const routes: Array<RouteRecordRaw> = [
         children: [
           {
             path: '/main',
-            name: 'main',
+            name: 'dashboard-main',
             component: () =>
               import(/* webpackChunkName: "dashboard" */ '@v/dashboard/my-main/index.vue')
+          },
+          {
+            path: '/editor',
+            name: 'dashboard-editor',
+            component: () =>
+              import(/* webpackChunkName: "dashboard" */ '@v/dashboard/editor/index.vue')
           }
         ]
       }

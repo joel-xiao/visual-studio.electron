@@ -15,9 +15,12 @@ html {
 }
 
 body {
-  font-family: 'Microsoft YaHei', '微软雅黑', 'Helvetica Neue', Helvetica, 'PingFang SC',
-    'Hiragino Sans GB', Arial, sans-serif;
-  font-size: 14px;
+  // font-family: 'Microsoft YaHei', '微软雅黑', 'Helvetica Neue', Helvetica, 'PingFang SC',
+  //   'Hiragino Sans GB', Arial, sans-serif;
+  font-family: Inter, 'Apple System', 'SF Pro SC', 'SF Pro Display', 'Helvetica Neue', Arial,
+    'PingFang SC', 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'Microsoft JhengHei',
+    'Source Han Sans SC', 'Noto Sans CJK SC', 'Source Han Sans CN', sans-serif;
+  font-size: 12px;
   line-height: 1.5;
   color: #333;
   -webkit-tap-highlight-color: transparent;

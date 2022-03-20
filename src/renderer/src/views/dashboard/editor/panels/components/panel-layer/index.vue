@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import TreeItem from './tree-item.vue';
+import LayerItem from './layer-item.vue';
 import { ref, reactive, computed, defineProps, withDefaults, defineEmits, onUnmounted } from 'vue';
-import type { TreeItemData, TreeItemMenu } from './interface';
+import type { LayerItemData, LayerItemMenu } from './interface';
 
 interface Props {
-  data?: TreeItemData[];
-  itemMenus?: TreeItemMenu[];
+  data?: LayerItemData[];
+  itemMenus?: LayerItemMenu[];
   itemIcon?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
@@ -16,27 +16,24 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits(['select', 'command']);
 
-const findTreeFolder = function (
-  folders: TreeItemData[],
-  cascades?: TreeItemData[]
-): TreeItemData[] {
+const findLayer = function (folders: LayerItemData[], cascades?: LayerItemData[]): LayerItemData[] {
   folders.forEach((folder) => {
     folder.cascades = [{ name: folder.name, id: folder.id }];
     if (cascades) folder.cascades.unshift(...cascades);
     if (folder.children) {
-      findTreeFolder(folder.children, folder.cascades);
+      findLayer(folder.children, folder.cascades);
     } else {
       folder.children = [];
     }
   });
   return folders;
 };
-const tree = computed<TreeItemData[]>(() => {
-  return findTreeFolder(props.data);
+const tree = computed<LayerItemData[]>(() => {
+  return findLayer(props.data);
 });
 
-const currentNav = ref<TreeItemData>();
-const onNavSelect = function (item: TreeItemData): void {
+const currentNav = ref<LayerItemData>();
+const onNavSelect = function (item: LayerItemData): void {
   currentNav.value = item;
   emit('select', item);
 };
@@ -58,22 +55,21 @@ const onContentMenuShow = function (val?: boolean, el?: HTMLElement): void {
 };
 
 let commandData = reactive<{
-  item: TreeItemData | null;
-  cmd: TreeItemMenu | null;
+  item: LayerItemData | null;
+  cmd: LayerItemMenu | null;
 }>({
   item: null,
   cmd: null
 });
 
-const onMenuCommand = function (cmd: TreeItemMenu): void {
-  console.log(cmd);
-  emit('command', cmd);
+const onMenuCommand = function (cmd: LayerItemMenu): void {
+  emit('command', cmd, commandData.item);
 };
 
 const onCommand = function (
   event: { path: HTMLElement[] },
-  cmd: TreeItemMenu,
-  item: TreeItemData
+  cmd: LayerItemMenu,
+  item: LayerItemData
 ): void {
   commandData.cmd = cmd;
   commandData.item = item;
@@ -88,8 +84,8 @@ const onCommand = function (
 </script>
 
 <template lang="pug">
-div(class='c-nav-tree')
-  TreeItem(
+div(class='editor-panel-layer')
+  LayerItem(
     @select="onNavSelect"
     @command="onCommand"
     :data="tree"
@@ -105,9 +101,10 @@ div(class='c-nav-tree')
 </template>
 
 <style scoped lang="scss">
-.c-nav-tree {
+.editor-panel-layer {
   width: 100%;
   height: 100%;
   position: relative;
+  padding: 4px 6px 7px;
 }
 </style>

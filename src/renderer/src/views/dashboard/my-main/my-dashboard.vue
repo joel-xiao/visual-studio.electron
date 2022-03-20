@@ -1,8 +1,13 @@
 <script setup lang="ts">
+import ItemCard from './components/item-card.vue';
 import { ref, reactive } from 'vue';
-import type { TreeItemMenu, TreeItemData } from '@c/nav-tree/interface';
+import { useRouter } from 'vue-router';
+import type { TreeItemMenu, TreeItemData } from '@/components/nav-tree/interface';
+import { useDashboardStore } from '@/store/dashboard';
 
-const projectList: TreeItemData[] = reactive([
+const router = useRouter();
+
+const folderTreeList: TreeItemData[] = reactive([
   { name: '全部应用', id: 'all', sum: 0, handle: false },
   { name: '未分组', id: 'no-group', sum: 0, handle: false },
   {
@@ -16,12 +21,12 @@ const projectList: TreeItemData[] = reactive([
     ]
   }
 ]);
-// const currentItem = ref<TreeItemData>(projectList[0]);
-// const onProjectSelect = function (item: TreeItemData): void {
-//   currentItem.value = item;
-// };
+const currentFolder = ref<TreeItemData>(folderTreeList[0]);
+const onSelectFolder = function (folder: TreeItemData): void {
+  currentFolder.value = folder;
+};
 
-const treeItemMenus = reactive<TreeItemMenu[]>([
+const folderMenus = reactive<TreeItemMenu[]>([
   {
     name: '更多',
     id: 'more',
@@ -34,9 +39,6 @@ const treeItemMenus = reactive<TreeItemMenu[]>([
   },
   { name: '添加组', id: 'add', icon: 'icon-jiahao', disabled: true }
 ]);
-// const onAddGroup = function (): void {
-
-// };
 
 interface newProjectData {
   name: string;
@@ -47,42 +49,50 @@ const newProjectList: newProjectData[] = reactive([
   { name: 'PC端创建', id: 'web', icon: 'new-project-web.png' },
   { name: '移动端创建', id: 'mobile', icon: 'new-project-mobile.png' }
 ]);
+
+let { saveCrumbs } = useDashboardStore();
+
+const onNewProject = function (): void {
+  let project: TreeItemData = { name: '未命名', id: '2all', sum: 0 };
+  if (currentFolder.value.children) {
+    currentFolder.value.AFold = true;
+    currentFolder.value.children.push(project);
+  }
+  saveCrumbs([...(currentFolder.value?.cascades || []), project]);
+  router.push('/dashboard/editor');
+};
 </script>
 
 <template lang="pug">
 div#dashboard-my-project
   div(class='project-manage left')
     NavTree(
-      :data="projectList"
+      :data="folderTreeList"
       itemIcon="icon-wenjianjia"
-      :itemMenus="treeItemMenus")
-    //- div(class="manage-title")
-    //-     span 我的分组
-    //-     span(class='add-group pointer') +
-    //- div(class="manage-main")
-    //-     div(class="main-project pointer"
-    //-     @click="onProjectSelect(item)"
-    //-     v-for="(item, idx) in projectList"
-    //-     :class="{[item.id]: !!item.id, active: currentItem.id === item.id}"
-    //-     :key="item.id")
-    //-         span(class="project-name") {{item.name}}
-    //-         span(class="project-num") {{item.sum}}
+      :itemMenus="folderMenus"
+      @select="onSelectFolder")
+  div(class="project-screen-list right")
+    //- div.new-projects
+    //-     div.new-project(
+    //-         v-for="(item, idx) in newProjectList"
+    //-         :key="item.id")
+    //-         img(:src="'@a/img/dashboard/my-main/' + item.icon")
+    //-         span.ellipsis.project-type {{item.name}}
+    div.new-projects
+      n-button(type="primary" @click.stop.prevent="onNewProject") 新建
+      div.search
+        NInput(placeholder="搜索")
+          template(#prefix)
+            Icon(src='icon-sousuo')
+    div.project-header
+      div.project-title
+        h2.ellipsis {{ currentFolder.name }}
+        span.projects-sum
+          span.projects-number {{ currentFolder.sum }}
+          |个
+    div.projects-content
+      ItemCard
 
-  //- div(class="project-screen-list right")
-  //-     div(class="new-projects-title")
-  //-         |选择下面的方式进行创建
-  //-     div.new-projects
-  //-         div.new-project(
-  //-             v-for="(item, idx) in newProjectList"
-  //-             :key="item.id")
-  //-             img(:src="require('@/assets/img/dashboard/my-main/' + item.icon)")
-  //-             span.ellipsis.project-type {{item.name}}
-  //-     div.project-header
-  //-         div.project-title
-  //-             h2.ellipsis {{currentItem.name}}
-  //-             span.color-BCC9D4
-  //-                 span.color-2483FF {{currentItem.sum}}
-  //-                 |个
   Loading
 
 </template>
@@ -97,7 +107,8 @@ div#dashboard-my-project
     width: 264px;
     height: 100%;
     padding: 8px;
-    border-right: 1px solid var(--border-black);
+    background: var(--theme-color-leftbar-bg);
+    z-index: 1;
 
     .manage-title {
       display: flex;
@@ -144,21 +155,65 @@ div#dashboard-my-project
   }
 
   .project-screen-list {
-    width: calc(100% - 240px);
+    z-index: 0;
+    width: calc(100% - 264px);
     height: 100%;
-    padding: 0 50px 0 20px;
-
-    .new-projects-title {
-      padding: 0;
-      overflow: hidden;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--dashboard-main-color);
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
+    padding: 10px 16px;
 
     .new-projects {
+      display: flex;
+      align-items: center;
+      height: 32px;
+
+      .n-button {
+        width: 113px;
+      }
+      .search {
+        width: 100%;
+        padding-left: 16px;
+        height: 100%;
+        .n-input {
+          height: 100%;
+          border-radius: var(--border-radius-8);
+        }
+      }
+    }
+
+    .project-header {
+      position: sticky;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      height: 36px;
+      margin: 0 6px;
+      margin-top: 8px;
+      margin-bottom: 4px;
+
+      .project-title {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        flex: none;
+
+        h2 {
+          max-width: 200px;
+          font-size: 16px;
+          color: var(--color-text);
+        }
+
+        span.projects-sum {
+          padding-left: 6px;
+          font-size: 14px;
+          color: #bcc9d4;
+          letter-spacing: 1px;
+          .projects-number {
+            padding: 0 2px;
+          }
+        }
+      }
+    }
+
+    /* .new-projects {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -172,7 +227,8 @@ div#dashboard-my-project
         justify-content: space-between;
         width: 258px;
         height: 78px;
-        margin: 16px 32px 16px 0;
+        margin-top: 4px;
+        margin-right: 10px;
         color: #fff;
         vertical-align: middle;
         cursor: pointer;
@@ -204,45 +260,7 @@ div#dashboard-my-project
         }
       }
     }
-
-    .project-header {
-      position: sticky;
-      top: 70px;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-      padding-top: 10px;
-      padding-bottom: 5px;
-      background: #171b22;
-      border-bottom: 1px solid #434b55;
-
-      .project-title {
-        display: flex;
-        align-items: center;
-        padding: 5px 0;
-
-        h2 {
-          max-width: 200px;
-          padding: 0 10px;
-          font-size: 14px;
-          color: var(--dashboard-main-color);
-          border-left: 2px solid var(--dashboard-main-color);
-        }
-
-        span.color-2483FF {
-          padding: 0 2px;
-          color: var(--dashboard-main-color);
-        }
-
-        span.color-BCC9D4 {
-          font-size: 14px;
-          color: #bcc9d4;
-          letter-spacing: 1px;
-        }
-      }
-    }
+    } */
   }
 }
 </style>

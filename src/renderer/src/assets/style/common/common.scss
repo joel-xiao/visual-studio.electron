@@ -3,12 +3,6 @@
 * @author: Joel
 */
 
-.size-12,
-.size-12::before,
-.size-12::after {
-  font-size: 12px;
-}
-
 [hidden],
 [hide] {
   display: none;
@@ -35,7 +29,7 @@
 
 .ellipsis {
   display: block;
-  overflow: hidden, hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -74,3 +68,14 @@
 }
 
 /* 滚动条优化 end */
+
+.transition {
+  transition-timing-function: ease-out;
+  transition-duration: 0.1s;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, left, right,
+    top, bottom, -webkit-box-shadow, -webkit-transform;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow,
+    transform, left, right, top, bottom;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow,
+    transform, left, right, top, bottom, -webkit-box-shadow, -webkit-transform;
+}

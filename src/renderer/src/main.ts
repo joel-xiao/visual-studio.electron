@@ -3,12 +3,13 @@ import { createApp } from 'vue';
 import '@a/style/index.scss';
 import App from './App.vue';
 // import '@/registerServiceWorker'
-import router, { setupRouter } from '@/router';
-import { setupStore } from '@/store';
+import router, { setupRouter } from '@/router/index';
+import { setupStore } from '@/store/index';
 import native from './plugins/native-ui';
-import components from './plugins/components';
+import components from './components/index';
+import directives from './directives/index';
 
-const app = createApp(App).use(components).use(native);
+const app = createApp(App).use(components).use(directives).use(native);
 // router
 setupRouter(app);
 // store

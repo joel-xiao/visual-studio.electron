@@ -13,7 +13,12 @@ import {
   NLayoutSider,
   NLayoutFooter,
   NH2,
-  NButton
+  NButton,
+  NCard,
+  NPopover,
+  NInput,
+  NBreadcrumb,
+  NBreadcrumbItem
 } from 'naive-ui';
 
 const components = [
@@ -25,7 +30,12 @@ const components = [
   NLayoutSider,
   NLayoutFooter,
   NH2,
-  NButton
+  NButton,
+  NCard,
+  NPopover,
+  NInput,
+  NBreadcrumb,
+  NBreadcrumbItem
 ];
 const naive = create({
   components

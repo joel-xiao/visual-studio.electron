@@ -6,6 +6,8 @@ export interface TreeItemData {
   children?: TreeItemData[];
   AFold?: boolean;
   handle?: boolean;
+  parentId?: string;
+  cascades?: TreeItemData[];
 }
 
 export interface TreeItemMenu {
