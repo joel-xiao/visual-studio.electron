@@ -17,7 +17,8 @@
       "@u/*": ["src/renderer/src/utils/*"],
       "@a/*": ["src/renderer/src/assets/*"],
       "@s/*": ["src/renderer/src/service/*"],
-      "@p/*": ["src/renderer/src/plugins/*"]
+      "@p/*": ["src/renderer/src/plugins/*"],
+      "@d/*": ["src/renderer/src/directives/*"]
     },
     "lib": ["esnext", "dom"],
     "types": ["vite/client", "jest"]

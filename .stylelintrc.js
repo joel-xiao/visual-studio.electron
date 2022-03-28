@@ -40,6 +40,8 @@ module.exports = {
     'color-function-notation': null,
     // 隔行
     'custom-property-empty-line-before': null,
-    'custom-property-empty-line-before': null
+    'custom-property-empty-line-before': null,
+    // class重复名称 例如 drag-resize 指令 src/directives/darg-resize/index.scss
+    'no-descending-specificity': null
   }
 };

@@ -80,7 +80,7 @@ div#dashboard-my-project
     //-     div.new-project(
     //-         v-for="(item, idx) in newProjectList"
     //-         :key="item.id")
-    //-         img(:src="'@a/img/dashboard/my-main/' + item.icon")
+    //-         img(:src="'@a/img/dashboard/main/' + item.icon")
     //-         span.ellipsis.project-type {{item.name}}
     div.new-projects
       n-button(type="primary" @click.stop.prevent="onNewProject") 新建
@@ -145,7 +145,7 @@ div#dashboard-my-project
 
         &.active {
           color: #fff;
-          background: url(`~@/assets/img/dashboard/my-main/my-project-check.png`);
+          background: url(`~@/assets/img/dashboard/main/my-project-check.png`);
           background-repeat: round;
           background-size: contain;
         }

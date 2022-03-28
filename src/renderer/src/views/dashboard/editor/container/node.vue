@@ -1,5 +1,5 @@
 <template lang="pug">
-DragResize(ref="resize" :data="dargDataset" @resizing="onResizing" @mousedown="onDown")
+DragResize(ref="resize" :data="dargDataset" @resizing="onResizing" @mousedown.stop.prevent="onDown")
   div.node {{ node.name}}
 
 </template>

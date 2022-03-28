@@ -1,12 +1,6 @@
 import type { App, DirectiveBinding } from 'vue';
 import './index.scss';
-
-interface DargDataset {
-  y2: number;
-  x2: number;
-  x: number;
-  y: number;
-}
+import type { DargDataset } from './interface';
 
 interface Binding {
   initPos: DargDataset;

@@ -108,9 +108,9 @@ export default defineConfig({
       '@u': path.resolve(__dirname, 'src/utils'),
       '@a': path.resolve(__dirname, 'src/assets'),
       '@s': path.resolve(__dirname, 'src/service'),
-      '@p': path.resolve(__dirname, 'src/plugins')
+      '@p': path.resolve(__dirname, 'src/plugins'),
+      '@d': path.resolve(__dirname, 'src/directives')
       // "layouts": path.resolve(__dirname, "src/layouts"),
-      // "dirs": path.resolve(__dirname, "src/directives"),
     }
   },
   define: {

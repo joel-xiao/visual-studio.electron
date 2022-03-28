@@ -4,7 +4,7 @@
 n-card(class="item-card" :bordered="false" content-style="padding: 6px;")
   div.item-card-cover
     div.item-card-cover_mask
-      //- img(src="@a/img/dashboard/my-main/no-photo.svg")
+      //- img(src="@a/img/dashboard/main/no-photo.svg")
   div(class="item-card-detail")
     span(class="name ellipsis") DetailDetailDetailDetailDetailDetailDetailDetailDetailDetailDetailDetailDetailDetail
 </template>

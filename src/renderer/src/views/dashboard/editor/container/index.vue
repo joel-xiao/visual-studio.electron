@@ -1,6 +1,6 @@
 ya
 <template lang="pug">
-div.editor-middle-container(id="editor-middle-container" :style="rootStyle")
+div.editor-middle-container(id="editor-middle-container" :style="rootStyle" @mousedown.self="onDown")
   ContainerNode(v-for="(node, idx) in nodes" :key="node.id" :id="node.id")
 
 </template>
@@ -25,6 +25,15 @@ const rootStyle = computed<{ transform: string; width: string; height: string }>
     height: root.width + 'px'
   };
 });
+
+let selectNode = inject('selectNode');
+const onSelectNode = function (node: Node): void {
+  typeof selectNode === 'function' && selectNode(node.id);
+};
+
+const onDown = function (): void {
+  onSelectNode(root);
+};
 
 const { currentNode } = storeToRefs(useDashboardStore());
 // const { saveCurrentNode } = useDashboardStore();
