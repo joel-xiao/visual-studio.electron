@@ -65,6 +65,7 @@ const onShare = function (): void {
   position: absolute;
   top: 0;
   left: 0;
+  background-color: var(--editor-panel-bg-color);
 
   .nav-panel-left,
   .nav-panel-right {

@@ -5,7 +5,7 @@ div(class='editor-panel-component')
       NInput(placeholder="搜索关键词..." size="small")
         template(#prefix)
           Icon(src='icon-sousuo')
-    Icon(button size="small" src="icon-sousuo" class="icon-btn")
+    Icon(button @click="onSwitchType" size="small" :src="currentType.icon" class="icon-btn")
 
   div.component-masters
     div.master-collapse( v-for="(item, idx) in data" :key="(item.id || '') + idx")
@@ -19,7 +19,7 @@ div(class='editor-panel-component')
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref, reactive, provide } from 'vue';
 import type { ComponentData } from './interface';
 import ComponentItem from './component-item.vue';
 
@@ -80,6 +80,21 @@ const data = reactive<ComponentData[]>([
 const onArrow = function (item: ComponentData): void {
   item.AFold = !item.AFold;
 };
+
+let currentType = ref<{ icon?: string; id?: string }>({});
+const getCurrentType = function (): string {
+  return currentType.value.id || '';
+};
+
+const onSwitchType = function (): void {
+  currentType.value =
+    currentType.value.id === 'icon'
+      ? { icon: 'icon', id: 'list' }
+      : { icon: 'icon-sousuo', id: 'icon' };
+};
+onSwitchType();
+
+provide('getType', getCurrentType);
 </script>
 
 <style lang="scss" scoped>

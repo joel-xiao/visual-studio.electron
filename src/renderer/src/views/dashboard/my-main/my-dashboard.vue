@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ItemCard from './components/item-card.vue';
-import { ref, reactive } from 'vue';
+import { ref, reactive, markRaw } from 'vue';
 import { useRouter } from 'vue-router';
 import type { TreeItemMenu, TreeItemData } from '@/components/nav-tree/interface';
 import { useDashboardStore } from '@/store/dashboard';
@@ -26,29 +26,33 @@ const onSelectFolder = function (folder: TreeItemData): void {
   currentFolder.value = folder;
 };
 
-const folderMenus = reactive<TreeItemMenu[]>([
-  {
-    name: '更多',
-    id: 'more',
-    icon: 'icon-dian',
-    disabled: true,
-    children: [
-      { name: '编辑', id: 'edit', icon: 'icon-bianji', disabled: true },
-      { name: '删除', id: 'delete', icon: 'icon-delete', disabled: true }
-    ]
-  },
-  { name: '添加组', id: 'add', icon: 'icon-jiahao', disabled: true }
-]);
+const folderMenus = reactive<TreeItemMenu[]>(
+  markRaw([
+    {
+      name: '更多',
+      id: 'more',
+      icon: 'icon-dian',
+      disabled: true,
+      children: [
+        { name: '编辑', id: 'edit', icon: 'icon-bianji', disabled: true },
+        { name: '删除', id: 'delete', icon: 'icon-delete', disabled: true }
+      ]
+    },
+    { name: '添加组', id: 'add', icon: 'icon-jiahao', disabled: true }
+  ])
+);
 
 interface newProjectData {
   name: string;
   icon: string;
   id: string;
 }
-const newProjectList: newProjectData[] = reactive([
-  { name: 'PC端创建', id: 'web', icon: 'new-project-web.png' },
-  { name: '移动端创建', id: 'mobile', icon: 'new-project-mobile.png' }
-]);
+const newProjectList: newProjectData[] = reactive(
+  markRaw([
+    { name: 'PC端创建', id: 'web', icon: 'new-project-web.png' },
+    { name: '移动端创建', id: 'mobile', icon: 'new-project-mobile.png' }
+  ])
+);
 
 let { saveCrumbs } = useDashboardStore();
 

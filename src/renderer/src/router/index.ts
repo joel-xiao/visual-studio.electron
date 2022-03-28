@@ -28,7 +28,7 @@ const routes: Array<RouteRecordRaw> = [
             path: '/editor',
             name: 'dashboard-editor',
             component: () =>
-              import(/* webpackChunkName: "dashboard" */ '@v/dashboard/editor/index.vue')
+              import(/* webpackChunkName: "dashboard" */ '@v/dashboard/my-main/my-editor.vue')
           }
         ]
       }

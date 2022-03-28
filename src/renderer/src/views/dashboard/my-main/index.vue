@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import MyDashboard from './my-dashboard.vue';
-import { ref, reactive } from 'vue';
+import { ref, reactive, markRaw } from 'vue';
 
 interface navData {
   label: string;
   id: string;
 }
-const navList: navData[] = reactive([
-  { label: '可视化', id: 'dashboard' },
-  { label: '网页', id: 'web' },
-  { label: '数据', id: 'data' }
-  // { label: "我的资产", id: 'com' },
-  // { label: "教程",id: 'case' },
-]);
+const navList: navData[] = reactive(
+  markRaw([
+    { label: '可视化', id: 'dashboard' },
+    { label: '网页', id: 'web' },
+    { label: '数据', id: 'data' }
+    // { label: "我的资产", id: 'com' },
+    // { label: "教程",id: 'case' },
+  ])
+);
 
 const currentNav = ref<navData>(navList[0]);
 const onNavSelect = function (nav: navData): void {

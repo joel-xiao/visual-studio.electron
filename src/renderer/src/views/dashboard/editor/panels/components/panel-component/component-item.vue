@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, reactive, defineEmits, defineProps, withDefaults } from 'vue';
+import { ref, reactive, inject, defineEmits, defineProps, withDefaults } from 'vue';
 import type { ComponentData } from './interface';
 
 interface Props {
@@ -15,12 +15,16 @@ const emit = defineEmits(['arrow']);
 const onArrow = function (item: ComponentData) {
   emit('arrow', item);
 };
+
+const getType = inject('getType');
 </script>
 <template lang="pug">
-div.component-box__container( v-for="(item, idx) in data.children" v-show="data.component || data.AFold" v-if="Array.isArray(data.children) && data.children.length > 0" :key="(item.id || '') + idx")
+div.component-box__container(v-for="(item, idx) in data.children" v-show="data.component || data.AFold" v-if="Array.isArray(data.children) && data.children.length > 0" :key="(item.id || '') + idx")
   template(v-if="data.component")
-    div.component-item__content
-      img(:src="item.icon")
+    div.component-box__swapper(:class="typeof getType === 'function' ? getType() : ''")
+      div.component-item__content
+        img(:src="item.icon")
+      div.component-item__label {{ item.name }}
 
   template(v-else-if="!item.dot")
     div(class="component-box__title transition" @click="onArrow(item)")
@@ -39,6 +43,7 @@ div.component-box__container( v-for="(item, idx) in data.children" v-show="data.
 
 <style scoped lang="scss">
 .component-box__container {
+  flex: none;
   .component-box__title {
     padding: 0 6px;
     font-size: 12px;
@@ -87,18 +92,52 @@ div.component-box__container( v-for="(item, idx) in data.children" v-show="data.
     margin-top: 6px;
   }
 
-  .component-item__content {
-    border-radius: 4px;
-    padding: 6px;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
+  .component-box__swapper {
+    .component-item__content {
+      padding: 4px;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &.icon {
+      margin-bottom: 10px;
+      .component-item__content {
+        border-radius: 4px;
+        max-width: 100%;
+        max-height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+      }
+      .component-item__label {
+        display: none;
+      }
+    }
 
-    img {
-      max-width: 100%;
-      max-height: 100%;
+    &.list {
+      margin-bottom: 12px;
+      width: 100%;
+      display: flex;
+      height: 45px;
+      width: 100%;
+      border-radius: 3px;
+      align-items: center;
+      .component-item__content {
+        border-radius: 3px;
+        width: 45px;
+        height: 45px;
+        flex: none;
+      }
+      .component-item__label {
+        width: 100%;
+        margin: 0 9px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 }

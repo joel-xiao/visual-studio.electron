@@ -18,5 +18,6 @@ div.editor-toolbar-panel
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--editor-panel-bg-color);
 }
 </style>

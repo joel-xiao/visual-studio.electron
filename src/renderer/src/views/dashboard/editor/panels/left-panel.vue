@@ -83,6 +83,7 @@ const componentTab = ref<Tab>(componentTabBars[0]);
   bottom: 0px;
   width: var(--left-menu-width);
   border-right: 1px solid var(--theme-color-canvas);
+  background-color: var(--editor-panel-bg-color);
   .panel-tab_bar {
     border-bottom: 1px solid var(--theme-color-canvas);
     padding: 0 12px 0 6px;

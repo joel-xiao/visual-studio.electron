@@ -17,6 +17,7 @@ import PanelTabBar from './components/panel-tab_bar.vue';
   bottom: 0px;
   width: var(--right-menu-width);
   border-left: 1px solid var(--theme-color-canvas);
+  background-color: var(--editor-panel-bg-color);
   .panel-tab_bar {
     border-bottom: 1px solid var(--theme-color-canvas);
     padding: 0 6px 0 12px;
