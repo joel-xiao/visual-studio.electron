@@ -4,11 +4,15 @@
   left: 0;
   box-sizing: border-box;
 
+  &.active {
+    z-index: 999999;
+  }
+
   &:hover {
-    .v-drag-sticks {
+    & > .v-drag-sticks {
       display: block;
 
-      .v-drag-stick {
+      & > .v-drag-stick {
         &.v-drag-stick-tl,
         &.v-drag-stick-br,
         &.v-drag-stick-tr,
@@ -19,7 +23,7 @@
     }
   }
 
-  .v-drag-sticks {
+  & > .v-drag-sticks {
     display: none;
 
     &.disabled {
@@ -29,12 +33,12 @@
     &.active {
       display: block;
 
-      .v-drag-stick {
+      & > .v-drag-stick {
         opacity: 1 !important;
       }
     }
 
-    .v-drag-stick {
+    & > .v-drag-stick {
       position: absolute;
 
       &.v-drag-stick-tl,

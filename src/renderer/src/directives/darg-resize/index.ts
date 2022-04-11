@@ -1,13 +1,6 @@
 import type { App, DirectiveBinding } from 'vue';
 import './index.scss';
-import type { DargDataset } from './interface';
-
-interface Binding {
-  initPos: DargDataset;
-  disable: boolean;
-  active: boolean;
-}
-
+import type { DargDataset, Binding } from './interface';
 class Drag {
   el?: HTMLElement;
   disabled: boolean;
@@ -39,7 +32,7 @@ class Drag {
     this.el.classList.add('v-drag-resize');
     this.el.addEventListener('mousedown', this.bodyDown, true);
 
-    this.disabled = !!binding.disable;
+    this.disabled = !!binding.disabled;
     this.active = !!binding.active;
     this.defaultPos = { ...binding.initPos };
     this.pos = { ...this.defaultPos };
@@ -81,13 +74,17 @@ class Drag {
 
   setDisabled(val: boolean): void {
     this.stickEl?.classList[val ? 'add' : 'remove']('disabled');
+    this.el?.classList[val ? 'add' : 'remove']('disabled');
   }
 
   setActive(active: boolean): void {
     this.stickEl?.classList[active ? 'add' : 'remove']('active');
+    this.el?.classList[active ? 'add' : 'remove']('active');
+    this.active = active;
   }
 
   bodyDown(event: MouseEvent): void {
+    this.prevent(event);
     if (this.disabled) return;
     this.setActive(true);
     this.currentStick = 'body';
@@ -114,7 +111,7 @@ class Drag {
     document.documentElement.removeEventListener('mouseup', this.onUp), false;
     document.documentElement.removeEventListener('mouseleave', this.onUp, false);
 
-    document.documentElement.removeEventListener('mousedown', this.onUp, false);
+    // document.documentElement.removeEventListener('mousedown', this.onUp, false);
 
     // document.documentElement.removeEventListener('touchmove', onMove.bind(this), true);
     // document.documentElement.removeEventListener('touchend', onUp.bind(this), true);
@@ -127,7 +124,7 @@ class Drag {
     document.documentElement.addEventListener('mouseup', this.onUp, false);
     document.documentElement.addEventListener('mouseleave', this.onUp, false);
 
-    document.documentElement.addEventListener('mousedown', this.onUp, true);
+    // document.documentElement.addEventListener('mousedown', this.onUp, true);
 
     // document.documentElement.addEventListener('touchmove', this.onMove, true);
     // document.documentElement.addEventListener('touchend', this.onUp, true);
@@ -136,6 +133,7 @@ class Drag {
   }
 
   onMove(event: MouseEvent): void {
+    if (!this.active) return;
     this.prevent(event);
     const stick: string = this.currentStick;
     const defaultPos: DargDataset = this.defaultPos;
@@ -185,7 +183,6 @@ class Drag {
 
   prevent(event: MouseEvent): void {
     event.preventDefault();
-    // event.stopPropagation();
   }
 
   updateStyle(pos: DargDataset): void {
@@ -225,6 +222,7 @@ export default {
       },
       updated(el: HTMLElement, binding: DirectiveBinding<Binding>) {
         dragData[binding.instance?.$.uid || '']?.setActive(binding.value.active);
+        dragData[binding.instance?.$.uid || '']?.setDisabled(binding.value.disabled);
       },
       beforeUnmount: (el: HTMLElement, binding: DirectiveBinding): void => {
         dragData[binding.instance?.$.uid || '']?.uninstall();

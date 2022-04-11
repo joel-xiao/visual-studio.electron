@@ -17,7 +17,7 @@ div.editor-left-panel
     )
     div.panel-component-tab_bar
       PanelTabBar(:data="componentTabBars" v-model="componentTab")
-    PanelComponent
+    PanelComponent( :darg="true" :data="componentData" @drag-start="onDragStart" @drag-stop="onDragStop")
 
 </template>
 
@@ -27,7 +27,10 @@ import type { Tab } from './components/panel-tab_bar';
 import PanelLayer from './components/panel-layer/index.vue';
 import type { LayerItemData, LayerItemMenu } from './components/panel-layer/interface';
 import PanelComponent from './components/panel-component/index.vue';
-import { ref, reactive } from 'vue';
+import type { Component, ComponentData } from './components/panel-component/interface';
+import { ref, reactive, defineEmits } from 'vue';
+
+const emit = defineEmits(['component-drag-start', 'component-drag-stop']);
 
 const tabBars = reactive<Tab[]>([
   { name: '图层', id: 'layer', show: false },
@@ -73,6 +76,66 @@ const onLayerCommand = function (cmd: LayerItemMenu, item: LayerItemData) {
 
 const componentTabBars = reactive<Tab[]>([{ name: '组件库', id: 'component' }]);
 const componentTab = ref<Tab>(componentTabBars[0]);
+
+const getIcon = (icon: string): string => {
+  return `image/dashboard/editor/panel-component/${icon}`;
+};
+const componentData = reactive<ComponentData[]>([
+  {
+    name: '本地',
+    id: '1',
+    children: [
+      {
+        name: '全局组件',
+        id: 'control',
+        children: [
+          {
+            dot: true,
+            component: true,
+            name: 'button',
+            id: 'picture',
+            children: [
+              {
+                name: 'button',
+                id: 'picture',
+                icon: getIcon('qw.png')
+              },
+              {
+                name: 'button',
+                id: '2',
+                icon: getIcon('qw.png')
+              }
+            ]
+          },
+          {
+            dot: true,
+            component: true,
+            name: 'button',
+            id: '2',
+            children: [
+              {
+                name: 'button',
+                id: '2',
+                icon: getIcon('qw.png')
+              },
+              {
+                name: 'button',
+                id: '2',
+                icon: getIcon('qw.png')
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]);
+const onDragStart = function (item: Component, event: DragEvent): void {
+  emit('component-drag-start', item, event);
+};
+const onDragStop = function (event: DragEvent): void {
+  emit('component-drag-stop', event);
+};
 </script>
 
 <style lang="scss" scoped>

@@ -4,16 +4,28 @@ import type { ComponentData } from './interface';
 
 interface Props {
   data?: ComponentData;
+  darg: boolean | undefined | null;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  data: () => ({})
+  data: () => ({}),
+  darg: false
 });
 
-const emit = defineEmits(['arrow']);
+const emit = defineEmits(['arrow', 'drag-start', 'drag-stop']);
 
 const onArrow = function (item: ComponentData) {
   emit('arrow', item);
+};
+
+const onDragStart = function (event: DragEvent, item: ComponentData): void {
+  emit('drag-start', event, item);
+};
+const onDragStop = function (event: DragEvent): void {
+  emit('drag-stop', event);
+};
+const onDrag = function (event: DragEvent): void {
+  event.preventDefault();
 };
 
 const getType = inject('getType');
@@ -22,7 +34,13 @@ const getType = inject('getType');
 div.component-box__container(v-for="(item, idx) in data.children" v-show="data.component || data.AFold" v-if="Array.isArray(data.children) && data.children.length > 0" :key="(item.id || '') + idx")
   template(v-if="data.component")
     div.component-box__swapper(:class="typeof getType === 'function' ? getType() : ''")
-      div.component-item__content
+      div.component-item__content(
+        :draggable="darg ? true : false"
+        @dragstart="onDragStart($event, item)"
+        @dragend="onDragStop"
+        @dragover="onDrag"
+        @dragenter="onDrag"
+        )
         img(:src="item.icon")
       div.component-item__label {{ item.name }}
 
@@ -35,10 +53,10 @@ div.component-box__container(v-for="(item, idx) in data.children" v-show="data.c
       div.component-box__title__text {{ item.name }}
 
   template(v-if="!item.component")
-    ComponentItem(:data="item" v-if="Array.isArray(item.children) && item.children.length > 0")
+    ComponentItem(:data="item" :darg="darg" @drag-start="onDragStart"  @drag-stop="onDragStop" v-if="Array.isArray(item.children) && item.children.length > 0")
   template(v-else)
     div.component-box__list
-      ComponentItem(:data="item" v-if="Array.isArray(item.children) && item.children.length > 0")
+      ComponentItem(:data="item" :darg="darg" @drag-start="onDragStart"  @drag-stop="onDragStop" v-if="Array.isArray(item.children) && item.children.length > 0")
 </template>
 
 <style scoped lang="scss">

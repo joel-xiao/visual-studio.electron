@@ -20,7 +20,7 @@ import {
   defineProps
 } from 'vue';
 
-import type { DargDataset } from '@d/darg-resize/interface';
+import type { DargDataset, Binding } from '@d/darg-resize/interface';
 
 interface Props {
   data: DargDataset;
@@ -29,13 +29,13 @@ const props = withDefaults(defineProps<Props>(), {
   data: () => ({ y2: 0, x2: 0, x: 0, y: 0 })
 });
 
-const dragData = reactive({
+const dragData = reactive<Binding>({
   initPos: props.data,
   disabled: false,
   active: false
 });
 
-const dragDataComputed = computed(() => ({ ...dragData }));
+const dragDataComputed = computed<Binding>(() => ({ ...dragData }));
 const emit = defineEmits(['resizing']);
 
 const setActive = function (val: boolean | undefined): void {

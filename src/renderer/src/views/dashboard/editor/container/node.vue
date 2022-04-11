@@ -1,6 +1,6 @@
 <template lang="pug">
-DragResize(ref="resize" :data="dargDataset" @resizing="onResizing" @mousedown.stop.prevent="onDown")
-  div.node {{ node.name}}
+DragResize(ref="resize" :data="dargDataset" @resizing="onResizing" @mousedown.stop.prevent                        ="onDown")
+  div.node( ref="vm")
 
 </template>
 
@@ -15,11 +15,14 @@ import {
   defineEmits,
   defineProps,
   withDefaults,
-  watch
+  createApp,
+  watch,
+  onMounted
 } from 'vue';
 import { storeToRefs } from 'pinia';
 import type { Node, NodeDelta } from './../interface';
-import type { DargDataset } from './components/drag-resize';
+import type { DargDataset } from '@d/darg-resize/interface';
+import { divide } from 'lodash';
 interface Props {
   id: string;
 }
@@ -73,7 +76,24 @@ const onResizing = function (dargDataset: DargDataset): void {
   });
 };
 
-console.log(node);
+const initNodeVm = function (el: HTMLElement | undefined): void {
+  // console.log(el);
+  if (el) {
+    const path = './ui-library/controls/picture/index.vue';
+    const component = import.meta.glob(`./ui-library/controls/picture/index.vue`);
+    let app = createApp(component[path], {});
+    console.log(node.vm);
+    let divEl = document.createElement('div');
+    el.appendChild(divEl);
+    app.mount(divEl);
+    el = undefined;
+  }
+};
+
+const vm = ref<HTMLElement>();
+onMounted(() => {
+  initNodeVm(vm.value);
+});
 </script>
 
 <style lang="scss" scoped>

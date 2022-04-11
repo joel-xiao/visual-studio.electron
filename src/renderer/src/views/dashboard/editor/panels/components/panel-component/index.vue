@@ -12,73 +12,38 @@ div(class='editor-panel-component')
       div(class="master-collapse__title" @click="onArrow(item)")
         div.master-collapse__title__text {{ item.name }}
         Icon(src="icon-shouqi2" class="arrow" :class="{ 'active': item.AFold }")
-      ComponentItem(:data="item" @arrow="onArrow")
+      ComponentItem(:data="item" :darg="!!darg" @arrow="onArrow" @drag-start="onDragStart" @drag-stop="onDragStop")
 
 
 
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, provide } from 'vue';
+import { ref, reactive, provide, defineEmits, defineProps, withDefaults } from 'vue';
 import type { ComponentData } from './interface';
 import ComponentItem from './component-item.vue';
 
-const getIcon = (icon: string): string => {
-  return `image/dashboard/editor/panel-component/${icon}`;
-};
-const data = reactive<ComponentData[]>([
-  {
-    name: '本地',
-    id: '1',
-    children: [
-      {
-        name: '全局组件',
-        id: 'q',
-        children: [
-          {
-            dot: true,
-            component: true,
-            name: 'button',
-            id: '2',
-            children: [
-              {
-                name: 'button',
-                id: '2',
-                icon: getIcon('qw.png')
-              },
-              {
-                name: 'button',
-                id: '2',
-                icon: getIcon('qw.png')
-              }
-            ]
-          },
-          {
-            dot: true,
-            component: true,
-            name: 'button',
-            id: '2',
-            children: [
-              {
-                name: 'button',
-                id: '2',
-                icon: getIcon('qw.png')
-              },
-              {
-                name: 'button',
-                id: '2',
-                icon: getIcon('qw.png')
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-]);
+interface Props {
+  data?: ComponentData[];
+  darg?: boolean | undefined | null;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  data: () => [],
+  darg: true
+});
+
+const emit = defineEmits(['drag-start', 'drag-stop']);
 
 const onArrow = function (item: ComponentData): void {
   item.AFold = !item.AFold;
+};
+
+const onDragStart = function (event: DragEvent, item: ComponentData): void {
+  emit('drag-start', item, event);
+};
+const onDragStop = function (event: DragEvent): void {
+  emit('drag-stop', event);
 };
 
 let currentType = ref<{ icon?: string; id?: string }>({});

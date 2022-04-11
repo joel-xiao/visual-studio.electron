@@ -4,3 +4,9 @@ export interface DargDataset {
   x: number;
   y: number;
 }
+
+export interface Binding {
+  initPos: DargDataset;
+  disabled: boolean;
+  active: boolean;
+}
