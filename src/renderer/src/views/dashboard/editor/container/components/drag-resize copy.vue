@@ -28,7 +28,7 @@ import {
   withDefaults,
   defineProps
 } from 'vue';
-import type { DargDataset } from './drag-resize';
+import type { DargDataset } from '@d/darg-resize/interface';
 
 interface Props {
   data: DargDataset;
