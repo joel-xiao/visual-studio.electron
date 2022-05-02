@@ -4,7 +4,8 @@ import { ref, reactive, markRaw } from 'vue';
 import { useRouter } from 'vue-router';
 import type { TreeItemMenu, TreeItemData } from '@/components/nav-tree/interface';
 import { useDashboardStore } from '@/store/dashboard';
-
+import visual from '@s/visual/visual';
+import type { IVisualProjectsResponse } from '@s/visual/types';
 const router = useRouter();
 
 const folderTreeList: TreeItemData[] = reactive([
@@ -65,6 +66,11 @@ const onNewProject = function (): void {
   saveCrumbs([...(currentFolder.value?.cascades || []), project]);
   router.push('/dashboard/editor');
 };
+
+let projects = ref<IVisualProjectsResponse['data']>([]);
+visual.getVisualProjects('23').then((res) => {
+  projects.value = res.data || [];
+});
 </script>
 
 <template lang="pug">
@@ -95,7 +101,7 @@ div#dashboard-my-project
           span.projects-number {{ currentFolder.sum }}
           |个
     div.projects-content
-      ItemCard
+      ItemCard(v-for="(item, idx) in projects" :data="item" :key="item.id + '_' + idx")
 
   Loading
 
@@ -215,6 +221,10 @@ div#dashboard-my-project
           }
         }
       }
+    }
+
+    .projects-content {
+      display: flex;
     }
 
     /* .new-projects {

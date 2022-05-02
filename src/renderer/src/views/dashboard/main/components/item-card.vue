@@ -4,11 +4,22 @@
 n-card(class="item-card" :bordered="false" content-style="padding: 6px;")
   div.item-card-cover
     div.item-card-cover_mask
-      //- img(src="@a/img/dashboard/main/no-photo.svg")
+      img(:src="data?.icon")
   div(class="item-card-detail")
-    span(class="name ellipsis") DetailDetailDetailDetailDetailDetailDetailDetailDetailDetailDetailDetailDetailDetail
+    span(class="name ellipsis") {{data?.label}}
 </template>
+<script lang="ts" setup>
+import { ref, reactive, inject, defineEmits, defineProps, withDefaults } from 'vue';
+import type { ItemCard } from './item-card.d';
 
+interface Props {
+  data: ItemCard;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  data: () => ({})
+});
+</script>
 <style lang="scss" scoped>
 .item-card {
   max-width: 300px;

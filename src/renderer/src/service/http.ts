@@ -1,7 +1,24 @@
 import axios, { AxiosRequestConfig } from 'axios';
 // import NProgress from 'nprogress';
 import { useLoadingBar } from 'naive-ui';
-const loadingBar = useLoadingBar();
+let loadingBar = useLoadingBar();
+if (!loadingBar) {
+  loadingBar = {
+    start: () => {
+      console.log('start');
+    },
+    finish: () => {
+      console.log('done');
+    },
+    error: () => {
+      console.log('done');
+    }
+  } as {
+    start: () => void;
+    finish: () => void;
+    error: () => void;
+  };
+}
 const NProgress = {
   start: loadingBar.start,
   done: loadingBar.finish

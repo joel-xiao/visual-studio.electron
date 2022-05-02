@@ -85,7 +85,7 @@ const initNodeVm = function (el: HTMLElement | undefined): void {
     console.log(node.vm);
     let divEl = document.createElement('div');
     el.appendChild(divEl);
-    app.mount(divEl);
+    // app.mount(divEl);
     el = undefined;
   }
 };
