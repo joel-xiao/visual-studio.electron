@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["ipcrenderer", "optimizelegibility", "pxtorem", "vite"],
+  "cSpell.words": ["ipcrenderer", "optimizelegibility", "pxtorem", "splashscreen", "TAURI", "vite"],
   // 基础设置
   "editor.detectIndentation": false, // 重置 editor.tabSize属性
   "editor.tabSize": 2, // 缩进2单元格
@@ -13,8 +13,8 @@
   "terminal.integrated.rendererType": "dom",
   "search.followSymlinks": false, // 关闭rg.exe进程
   "workbench.startupEditor": "welcomePage", // 图标
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "escook dark soft",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro",
   "files.saveConflictResolution": "overwriteFileOnDisk",
   "explorer.confirmDelete": false,
   // 格式化校验
@@ -22,9 +22,9 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认格式化工具为prettier
   "editor.formatOnSave": true, // 保存自动格式化
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "vetur.format.enable": false,
   "vetur.validation.template": false,

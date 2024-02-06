@@ -2,9 +2,7 @@
 div(class='editor-panel-component')
   div.component-header
     div.search
-      NInput(placeholder="搜索关键词..." size="small")
-        template(#prefix)
-          Icon(src='icon-sousuo')
+      CInput(icon="icon-sousuo" :focus="false" placeholder="搜索组件...")
     Icon(button @click="onSwitchType" size="small" :src="currentType.icon" class="icon-btn")
 
   div.component-masters
@@ -12,25 +10,26 @@ div(class='editor-panel-component')
       div(class="master-collapse__title" @click="onArrow(item)")
         div.master-collapse__title__text {{ item.name }}
         Icon(src="icon-shouqi2" class="arrow" :class="{ 'active': item.AFold }")
-      ComponentItem(:data="item" :darg="!!darg" @arrow="onArrow" @drag-start="onDragStart" @drag-stop="onDragStop")
+      ComponentItem(:data="item" :drag="!!drag" @arrow="onArrow" @drag-start="onDragStart" @drag-stop="onDragStop")
 
 
 
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, provide, defineEmits, defineProps, withDefaults } from 'vue';
+import { ref, reactive, provide, withDefaults } from 'vue';
 import type { ComponentData } from './interface';
 import ComponentItem from './component-item.vue';
+import CInput from './../../../../components/basic/c-input/index.vue';
 
 interface Props {
   data?: ComponentData[];
-  darg?: boolean | undefined | null;
+  drag?: boolean | undefined | null;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   data: () => [],
-  darg: true
+  drag: true
 });
 
 const emit = defineEmits(['drag-start', 'drag-stop']);
@@ -54,15 +53,15 @@ const getCurrentType = function (): string {
 const onSwitchType = function (): void {
   currentType.value =
     currentType.value.id === 'icon'
-      ? { icon: 'icon', id: 'list' }
-      : { icon: 'icon-sousuo', id: 'icon' };
+      ? { icon: 'icon-small-view', id: 'list' }
+      : { icon: 'icon-list-view', id: 'icon' };
 };
 onSwitchType();
 
 provide('getType', getCurrentType);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .editor-panel-component {
   padding: 0 6px 6px;
   position: relative;
@@ -98,7 +97,7 @@ provide('getType', getCurrentType);
         justify-content: space-between;
 
         &:hover {
-          background: var(--color-tran-6);
+          background: var(--theme-color-tran-6);
         }
 
         .master-collapse__title__text {

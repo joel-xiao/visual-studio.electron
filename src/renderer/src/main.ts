@@ -15,10 +15,3 @@ const app = createApp(App).use(components).use(directives).use(native);
 setupRouter(app);
 // store
 setupStore(app);
-
-router.isReady().then(() => {
-  app.mount('#app').$nextTick(window.removeLoading);
-});
-
-console.log('fs', window.fs);
-console.log('ipcRenderer', window.ipcRenderer);

@@ -1,17 +1,20 @@
 <script lang="ts" setup>
 import TreeItem from './tree-item.vue';
-import { ref, reactive, computed, defineProps, withDefaults, defineEmits, onUnmounted } from 'vue';
+import { ref, reactive, computed, withDefaults, onUnmounted } from 'vue';
 import type { TreeItemData, TreeItemMenu } from './interface';
+import type { Size } from './../types.d';
 
 interface Props {
   data?: TreeItemData[];
   itemMenus?: TreeItemMenu[];
   itemIcon?: string;
+  size?: Size;
 }
 const props = withDefaults(defineProps<Props>(), {
   data: () => [],
   itemMenus: () => [],
-  itemIcon: ''
+  itemIcon: '',
+  size: 'small'
 });
 
 const emit = defineEmits(['select', 'command']);
@@ -71,7 +74,7 @@ const onMenuCommand = function (cmd: TreeItemMenu): void {
 };
 
 const onCommand = function (
-  event: { path: HTMLElement[] },
+  event: { composedPath: () => HTMLElement[] },
   cmd: TreeItemMenu,
   item: TreeItemData
 ): void {
@@ -79,20 +82,25 @@ const onCommand = function (
   commandData.item = item;
 
   if (cmd?.children?.length) {
-    onContentMenuShow(true, event.path[1]);
+    onContentMenuShow(true, event.composedPath()[1]);
     return;
   }
   onContentMenuShow(false);
   onMenuCommand(cmd);
 };
+
+defineExpose({
+  setSelect: onNavSelect
+});
 </script>
 
 <template lang="pug">
-div(class='c-nav-tree')
+div(class='c-nav-tree' :class="size")
   TreeItem(
     @select="onNavSelect"
     @command="onCommand"
     :data="tree"
+    :size="size"
     :itemIcon="itemIcon"
     :itemMenus="itemMenus"
     :currentNav="currentNav")
@@ -104,7 +112,7 @@ div(class='c-nav-tree')
     @command="onMenuCommand")
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .c-nav-tree {
   width: 100%;
   height: 100%;

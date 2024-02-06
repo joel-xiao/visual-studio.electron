@@ -1,27 +1,32 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
+    "importHelpers": true,
     "strict": true,
     "jsx": "preserve",
+    "esModuleInterop": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "isolatedModules": true,
     "paths": {
-      "@/*": ["src/renderer/src/*"],
-      "@v/*": ["src/renderer/src/views/*"],
-      "@c/*": ["src/renderer/src/components/*"],
-      "@u/*": ["src/renderer/src/utils/*"],
-      "@a/*": ["src/renderer/src/assets/*"],
-      "@s/*": ["src/renderer/src/service/*"],
-      "@p/*": ["src/renderer/src/plugins/*"],
-      "@d/*": ["src/renderer/src/directives/*"]
+      "@/*": ["./src/*"],
+      "@v/*": ["./src/views/*"],
+      "@c/*": ["./src/components/*"],
+      "@u/*": ["./src/utils/*"],
+      "@a/*": ["./src/assets/*"],
+      "@s/*": ["./src/service/*"],
+      "@p/*": ["./src/plugins/*"],
+      "@d/*": ["./src/directives/*"],
+      "@hooks/*": ["./src/hooks/*"]
     },
-    "lib": ["esnext", "dom"],
-    "types": ["vite/client", "jest"]
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "types": ["vite/client", "jest", "@types/node"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["./src/**/*.ts", "./src/**/*.d.ts", "./src/**/*.tsx", "./src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

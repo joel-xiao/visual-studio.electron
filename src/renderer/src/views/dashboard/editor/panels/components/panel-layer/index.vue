@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import LayerItem from './layer-item.vue';
-import { ref, reactive, computed, defineProps, withDefaults, defineEmits, onUnmounted } from 'vue';
+import { ref, reactive, computed, withDefaults, onUnmounted } from 'vue';
 import type { LayerItemData, LayerItemMenu } from './interface';
 
 interface Props {
@@ -18,7 +18,7 @@ const emit = defineEmits(['select', 'command']);
 
 const findLayer = function (folders: LayerItemData[], cascades?: LayerItemData[]): LayerItemData[] {
   folders.forEach((folder) => {
-    folder.cascades = [{ name: folder.name, id: folder.id }];
+    folder.cascades = [folder];
     if (cascades) folder.cascades.unshift(...cascades);
     if (folder.children) {
       findLayer(folder.children, folder.cascades);
@@ -32,9 +32,11 @@ const tree = computed<LayerItemData[]>(() => {
   return findLayer(props.data);
 });
 
-const currentNav = ref<LayerItemData>();
+const oldSelect = ref<LayerItemData>();
 const onNavSelect = function (item: LayerItemData): void {
-  currentNav.value = item;
+  oldSelect.value && (oldSelect.value.select = false);
+  oldSelect.value = item;
+  item.select = true;
   emit('select', item);
 };
 
@@ -65,7 +67,7 @@ const onMenuCommand = function (cmd: LayerItemMenu): void {
 };
 
 const onCommand = function (
-  event: { path: HTMLElement[] },
+  event: { composedPath: () => HTMLElement[] },
   cmd: LayerItemMenu,
   item: LayerItemData
 ): void {
@@ -73,7 +75,7 @@ const onCommand = function (
   commandData.item = item;
 
   if (cmd?.children?.length) {
-    onContentMenuShow(true, event.path[1]);
+    onContentMenuShow(true, event.composedPath()[1]);
     return;
   }
   onContentMenuShow(false);
@@ -88,8 +90,7 @@ div(class='editor-panel-layer')
     @command="onCommand"
     :data="tree"
     :itemIcon="itemIcon"
-    :itemMenus="itemMenus"
-    :currentNav="currentNav")
+    :itemMenus="itemMenus")
   ClickMenu(
     v-model='clickMenu.show'
     :data="commandData?.cmd?.children || []"
@@ -98,11 +99,13 @@ div(class='editor-panel-layer')
     @command="onMenuCommand")
 </template>
 
-<style scoped lang="scss">
-.editor-panel-layer {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding: 4px 6px 7px;
+<style lang="scss">
+#editor {
+  .editor-panel-layer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 4px 6px 7px;
+  }
 }
 </style>

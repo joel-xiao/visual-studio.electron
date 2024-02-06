@@ -1,24 +1,18 @@
 <script lang="ts" setup>
-import {
-  computed,
-  reactive,
-  defineProps,
-  withDefaults,
-  defineEmits,
-  defineExpose,
-  onUnmounted
-} from 'vue';
+import { computed, reactive, withDefaults, onUnmounted } from 'vue';
 import type { ClickMenu } from './interface';
 
 interface Props {
   data?: ClickMenu[];
   modelValue: boolean;
+  size?: 'small' | '';
   x: number;
   y: number;
 }
 const props = withDefaults(defineProps<Props>(), {
   data: () => [],
   modelValue: false,
+  size: '',
   x: 0,
   y: 0
 });
@@ -59,37 +53,38 @@ const onMenuCommand = function (cmd: ClickMenu): void {
 </script>
 
 <template lang="pug">
-transition(name='fade')
-  div.click-menu(:style="contentMenuStyle" v-show="modelValue")
+transition(name='c-click-menu-fade')
+  div.c-click-menu(:style="contentMenuStyle" v-show="modelValue")
     div.content-menu-item(v-for="(item) in data" :key="item.id" @click.prevent="onMenuCommand(item)")
       Icon(
         class="menu-item-icon"
+        :size="size"
         :src="item.icon")
       span(class="menu-item-label") {{ item.name }}
 </template>
 
-<style scoped lang="scss">
-.fade-enter-active,
-.fade-leave-active {
+<style lang="scss">
+.c-click-menu-fade-enter-active,
+.c-click-menu-fade-leave-active {
   transition: ease-out;
   transition-duration: 0.2s;
   transition-property: opacity, transform;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.c-click-menu-fade-enter-from,
+.c-click-menu-fade-leave-to {
   opacity: 0;
   transform: translateY(-10px);
 }
 
-.click-menu {
+.c-click-menu {
   z-index: 999;
   position: fixed;
   left: 0;
   width: 196px;
   padding: 6px;
   background: var(--color-gray-700);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--theme-color-border);
   border-radius: var(--border-radius-6);
   box-shadow: var(--shadow-m);
 
@@ -101,10 +96,10 @@ transition(name='fade')
     border-radius: var(--border-radius-4);
 
     &:hover {
-      background: var(--color-blue-700);
+      background: var(--theme-color-blue-700);
       .menu-item-label,
       .menu-item-icon {
-        color: var(--color-text-primary-white);
+        color: var(--theme-color-text-primary-white);
       }
     }
 
@@ -114,7 +109,7 @@ transition(name='fade')
 
     .menu-item-label,
     .menu-item-icon {
-      color: var(--color-text-primary);
+      color: var(--theme-color-text-primary);
     }
 
     .menu-item-label {

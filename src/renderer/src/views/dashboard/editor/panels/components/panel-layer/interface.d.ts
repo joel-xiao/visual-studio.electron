@@ -1,13 +1,15 @@
 export interface LayerItemData {
   name?: string;
-  icon?: string;
+  icon: string;
   id: string;
   sum?: number;
   children?: LayerItemData[];
   AFold?: boolean;
+  select?: boolean;
   handle?: boolean;
-  parentId?: string;
+  parentId?: string | undefined | null;
   cascades?: LayerItemData[];
+  data?: { [key: string]: string | undefined | null | boolean | number };
 }
 
 export interface LayerItemMenu {

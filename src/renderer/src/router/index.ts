@@ -2,14 +2,14 @@
  * @Description: router
  * @Autor: Joel
  */
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import layout from '@v/layout/index.vue';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import layout from '@v/layout/layout-screen.vue';
 import type { App } from 'vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/dashboard/main',
+    redirect: '/dashboard/main/projects',
     name: 'Home',
     component: layout,
     children: [
@@ -22,7 +22,21 @@ const routes: Array<RouteRecordRaw> = [
             path: '/main',
             name: 'dashboard-main',
             component: () =>
-              import(/* webpackChunkName: "dashboard" */ '@v/dashboard/main/index.vue')
+              import(/* webpackChunkName: "dashboard" */ '@v/dashboard/main/index.vue'),
+            children: [
+              {
+                path: '/projects',
+                name: 'dashboard-projects',
+                component: () =>
+                  import(/* webpackChunkName: "dashboard" */ '@v/dashboard/main/my-dashboard.vue')
+              },
+              {
+                path: '/data',
+                name: 'dashboard-data',
+                component: () =>
+                  import(/* webpackChunkName: "dashboard" */ '@v/dashboard/main/my-data.vue')
+              }
+            ]
           },
           {
             path: '/editor',
@@ -50,8 +64,8 @@ const routePathJoinHandler = function (routes: Array<RouteRecordRaw>, parentPath
 routePathJoinHandler(routes);
 
 const router = createRouter({
-  // history: createWebHistory(process.env.BASE_URL),
-  history: createWebHashHistory(process.env.BASE_URL),
+  history: createWebHistory(process.env.BASE_URL),
+  // history: createWebHashHistory(process.env.BASE_URL),
   routes
 });
 

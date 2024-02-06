@@ -1,3 +1,8 @@
+/**
+ * @module .commitlintrc
+ * @author: Joel
+ * @description: git commit -m 规则校验
+ */
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
@@ -20,8 +25,8 @@ module.exports = {
         'sync' // 同步主线或分支的Bug
       ]
     ],
-    'type-empty': [2, 'never'], // 提交不符合规范时,也可以提交, ////但是会有警告
-    'subject-empty': [2, 'never'], // 提交不符合规范时,也可以提交,////但是会有警告
+    'type-empty': [2, 'never'], // 提交不符合规范时,不可以提交。
+    'subject-empty': [2, 'never'], // 提交不符合规范时,不可以提交。
     'subject-full-stop': [0, 'never'],
     'subject-case': [0, 'never']
   }

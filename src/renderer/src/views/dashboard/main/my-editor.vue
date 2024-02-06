@@ -4,7 +4,7 @@ Editor
 
 <script setup lang="ts">
 import Editor from '../editor/index.vue';
-import type { EditorData } from '../editor/interface';
+import type { EditorData } from '../editor/hooks/node-context/interface';
 import { ref, reactive } from 'vue';
 
 // const data = reactive<EditorData>({
@@ -25,4 +25,4 @@ import { ref, reactive } from 'vue';
 // });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
