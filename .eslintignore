@@ -1,5 +1,0 @@
-dist
-release
-src/renderer/public
-src/renderer/index.html
-src/renderer/src/env.d.ts
