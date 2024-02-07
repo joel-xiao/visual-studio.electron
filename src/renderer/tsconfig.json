@@ -5,13 +5,11 @@
     "useDefineForClassFields": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "importHelpers": true,
     "strict": true,
     "jsx": "preserve",
-    "esModuleInterop": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "esModuleInterop": true,
     "paths": {
       "@/*": ["src/renderer/src/*"],
       "@v/*": ["src/renderer/src/views/*"],
@@ -23,11 +21,8 @@
       "@d/*": ["src/renderer/src/directives/*"],
       "@hooks/*": ["src/renderer/src/hooks/*"]
     },
-    "allowSyntheticDefaultImports": true,
     "lib": ["esnext", "dom"],
-    "skipLibCheck": true,
-    "types": ["vite/client", "jest", "@types/node"]
+    "types": ["vite/client", "jest"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
